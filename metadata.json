@@ -1,0 +1,6 @@
+{
+  "name": "La Vida Loca Crew",
+  "description": "Sito web ufficiale della scuola di danza La Vida Loca Crew a Foggia. Corsi di danza sportiva, ballo di coppia, eccellenza e passione con Marika e Michele.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Vida Loca Crew | Scuola di Danza e Danza Sportiva a Foggia</title>
+  <meta name="description" content="Scuola di ballo e danza sportiva a Foggia con i maestri Marika e Michele. Danze Standard, Latino Americane, Balli di Gruppo e percorsi per ogni età. Prenota la prova gratuita!" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bgDark: '#0c0e11',
+            cardDark: '#16181b',
+            surfaceDark: '#1e2023',
+            coralAccent: '#ffb59d',
+            coralHover: '#ff9d7e',
+            textMuted: '#a88a81',
+            textLight: '#e2e2e6',
+            whatsappGreen: '#25D366',
+            whatsappHover: '#20bd5a',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Montserrat"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #0c0e11;
+      color: #e2e2e6;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+    .glass-nav {
+      background: rgba(12, 14, 17, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    ::selection {
+      background-color: #ffb59d;
+      color: #390c00;
+    }
+    /* Custom subtle glow */
+    .glow-coral {
+      box-shadow: 0 0 25px rgba(255, 181, 157, 0.35);
+    }
+    .glow-coral:hover {
+      box-shadow: 0 0 40px rgba(255, 181, 157, 0.65);
+    }
+    .glow-whatsapp {
+      box-shadow: 0 4px 25px rgba(37, 211, 102, 0.4);
+    }
+    .glow-whatsapp:hover {
+      box-shadow: 0 6px 35px rgba(37, 211, 102, 0.7);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col relative">
+
+  <!-- ================= TOP NAVIGATION BAR ================= -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#0c0e11]/90 backdrop-blur-md border-b border-white/5 py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between">
+        
+        <!-- Logo Brand -->
+        <a href="#" class="flex items-center gap-2 group">
+          <span class="font-['Montserrat'] text-xl sm:text-2xl font-bold tracking-tight text-[#ffb59d] group-hover:text-white transition-colors">
+            La Vida Loca Crew
+          </span>
+          <span class="hidden sm:inline text-xs px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-white/70">
+            Foggia
+          </span>
+        </a>
+
+        <!-- Desktop Links -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#about" class="text-[#e2e2e6] hover:text-[#ffb59d] font-medium text-sm transition-colors relative py-1 group">
+            About Us
+            <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#ffb59d] transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#courses" class="text-[#e2e2e6] hover:text-[#ffb59d] font-medium text-sm transition-colors relative py-1 group">
+            I Corsi
+            <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#ffb59d] transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#reviews" class="text-[#e2e2e6] hover:text-[#ffb59d] font-medium text-sm transition-colors relative py-1 group">
+            Reviews
+            <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#ffb59d] transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#contact" class="text-[#e2e2e6] hover:text-[#ffb59d] font-medium text-sm transition-colors relative py-1 group">
+            Contact
+            <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#ffb59d] transition-all duration-300 group-hover:w-full"></span>
+          </a>
+        </div>
+
+        <!-- Desktop CTA -->
+        <div class="hidden md:flex items-center gap-4">
+          <a href="#contact" class="bg-[#ffb59d] hover:bg-[#ff9d7e] text-[#390c00] font-semibold text-sm px-6 py-2.5 rounded-full flex items-center gap-2 transition-all duration-300 hover:-translate-y-0.5 glow-coral">
+            <span>Book Trial</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <div class="flex md:hidden">
+          <button id="mobileMenuBtn" aria-label="Apri menu" class="p-2 rounded-lg text-[#e2e2e6] hover:text-white hover:bg-white/5">
+            <i data-lucide="menu" id="menuIconOpen" class="w-6 h-6"></i>
+            <i data-lucide="x" id="menuIconClose" class="w-6 h-6 hidden"></i>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Mobile Dropdown -->
+      <div id="mobileMenu" class="hidden md:hidden pt-4 pb-3 border-t border-white/10 mt-3 space-y-2">
+        <a href="#about" class="mobile-link block px-3 py-2 rounded-lg text-base text-[#e2e2e6] hover:text-[#ffb59d] hover:bg-white/5">About Us</a>
+        <a href="#courses" class="mobile-link block px-3 py-2 rounded-lg text-base text-[#e2e2e6] hover:text-[#ffb59d] hover:bg-white/5">I Corsi</a>
+        <a href="#reviews" class="mobile-link block px-3 py-2 rounded-lg text-base text-[#e2e2e6] hover:text-[#ffb59d] hover:bg-white/5">Reviews</a>
+        <a href="#contact" class="mobile-link block px-3 py-2 rounded-lg text-base text-[#e2e2e6] hover:text-[#ffb59d] hover:bg-white/5">Contact</a>
+        <div class="pt-2">
+          <a href="#contact" class="mobile-link w-full bg-[#ffb59d] text-[#390c00] font-semibold py-3 px-4 rounded-full flex items-center justify-center gap-2">
+            <span>Book Trial</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+          <a href="tel:+393806859310" class="w-full text-center py-2 text-xs text-[#a88a81] hover:text-[#ffb59d] flex items-center justify-center gap-1.5 mt-2">
+            <i data-lucide="phone" class="w-3.5 h-3.5"></i> Chiamaci al +39 380 685 9310
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ================= HERO SECTION ================= -->
+  <header id="hero" class="relative min-h-[88vh] lg:min-h-[92vh] flex items-center justify-center overflow-hidden pt-28 pb-16 md:py-32">
+    <!-- Background Image with Lighting Overlays -->
+    <div class="absolute inset-0 z-0 pointer-events-none">
+      <div
+        class="absolute inset-0 bg-cover bg-center md:bg-[center_top_20%] w-full h-full scale-105"
+        style="background-image: url('https://images.unsplash.com/photo-1547153760-18fc86324498?q=80&w=2000&auto=format&fit=crop'); filter: brightness(0.68) contrast(1.15);"
+      ></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0c0e11] via-[#0c0e11]/60 to-[#0c0e11]/40"></div>
+      <div class="absolute inset-0 bg-radial from-transparent via-[#0c0e11]/40 to-[#0c0e11]/90"></div>
+      <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-[#ffb59d]/10 rounded-full blur-3xl pointer-events-none"></div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-6">
+      
+      <!-- Top Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[#ffb59d] text-xs sm:text-sm font-medium mb-6 backdrop-blur-md hover:bg-white/10 transition-colors">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#ffb59d]"></i>
+        <span>Scuola di Danza e Danza Sportiva a Foggia</span>
+      </div>
+
+      <!-- Main Heading -->
+      <h1 class="font-['Montserrat'] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight drop-shadow-md">
+        La Vida Loca Crew
+      </h1>
+
+      <!-- Subheading -->
+      <p class="text-base sm:text-lg md:text-xl text-[#e1bfb5] max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
+        Passione, professionalità e divertimento a due passi da casa tua. Entra a far parte della nostra famiglia!
+      </p>
+
+      <!-- Action Buttons Row -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md sm:max-w-none mx-auto">
+        
+        <!-- Primary CTA: Scroll to Contact Form -->
+        <a href="#contact" onclick="focusContactInput()" class="w-full sm:w-auto bg-[#ffb59d] hover:bg-[#ff9d7e] text-[#390c00] hover:text-[#200500] font-semibold text-sm sm:text-base px-8 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-2 glow-coral group">
+          <span>Prenota una lezione di prova</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5"></i>
+        </a>
+
+        <!-- WhatsApp Click-to-Chat Button (Official Green) -->
+        <a
+          href="https://wa.me/393806859310?text=Ciao!%20Vorrei%20informazioni%20sui%20corsi%20di%20ballo"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full sm:w-auto bg-[#25D366] hover:bg-[#20bd5a] text-[#073619] hover:text-[#031e0d] font-semibold text-sm sm:text-base px-7 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-2.5 glow-whatsapp border border-[#52e486]/50 group"
+          aria-label="Apri chat WhatsApp al +39 380 685 9310"
+        >
+          <i data-lucide="message-circle" class="w-5 h-5 text-[#073619] fill-current group-hover:scale-110 transition-transform"></i>
+          <span>Chatta su WhatsApp</span>
+        </a>
+
+        <!-- Tertiary CTA: Discover Courses -->
+        <a href="#courses" class="w-full sm:w-auto border border-[#59413a] hover:border-[#ffb59d] bg-[#16181b]/80 hover:bg-white/10 text-[#e2e2e6] hover:text-[#ffb59d] font-semibold text-sm sm:text-base px-6 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-2 group">
+          <i data-lucide="compass" class="w-4 h-4 text-[#ffb59d] transition-transform duration-300 group-hover:rotate-45"></i>
+          <span>Scopri i corsi</span>
+        </a>
+
+      </div>
+
+      <!-- Quick Trust Indicators -->
+      <div class="mt-14 pt-8 border-t border-white/10 max-w-3xl mx-auto grid grid-cols-3 gap-2 sm:gap-6 text-center">
+        <a href="#reviews" class="flex flex-col items-center p-2 rounded-xl hover:bg-white/5 transition-colors group">
+          <span class="text-xl sm:text-2xl font-bold font-['Montserrat'] text-[#ffb59d] group-hover:scale-105 transition-transform">4.6 ★</span>
+          <span class="text-xs text-[#a88a81] group-hover:text-[#ffb59d]">Google Reviews</span>
+        </a>
+        <a href="#about" class="flex flex-col items-center border-x border-white/10 px-2 p-2 rounded-xl hover:bg-white/5 transition-colors group">
+          <span class="text-xl sm:text-2xl font-bold font-['Montserrat'] text-white group-hover:text-[#ffb59d]">Marika & Michele</span>
+          <span class="text-xs text-[#a88a81] group-hover:text-white">Maestri Fondatori</span>
+        </a>
+        <a href="#contact" class="flex flex-col items-center p-2 rounded-xl hover:bg-white/5 transition-colors group">
+          <span class="text-xl sm:text-2xl font-bold font-['Montserrat'] text-white group-hover:text-[#ffb59d]">100%</span>
+          <span class="text-xs text-[#a88a81] group-hover:text-white">Passione & Tecnica</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= ABOUT SECTION ================= -->
+  <section id="about" class="py-20 md:py-28 bg-[#0c0e11] relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left Column: Visual Showcase -->
+        <div class="lg:col-span-6 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5] group">
+              <img
+                src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=1200&auto=format&fit=crop"
+                alt="Sala da ballo illuminata La Vida Loca Crew Foggia"
+                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0c0e11]/80 via-transparent to-transparent pointer-events-none"></div>
+
+              <!-- Floating badge -->
+              <div class="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 p-4 rounded-xl bg-[#1e2023]/90 backdrop-blur-md border border-white/10 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-lg bg-[#ffb59d]/20 text-[#ffb59d] flex items-center justify-center shrink-0">
+                    <i data-lucide="award" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-['Montserrat'] font-bold text-sm text-white">Marika & Michele</h4>
+                    <p class="text-xs text-[#a88a81]">Direzione Tecnica & Coreografica</p>
+                  </div>
+                </div>
+                <span class="hidden sm:inline-flex items-center text-xs font-semibold text-[#ffb59d] px-2.5 py-1 rounded-full bg-[#ffb59d]/10 border border-[#ffb59d]/20">
+                  Via Lucera 121, Foggia
+                </span>
+              </div>
+            </div>
+
+            <!-- Ambient Glow -->
+            <div class="absolute -top-6 -left-6 w-32 h-32 bg-[#ffb59d]/15 rounded-full blur-2xl -z-10 pointer-events-none"></div>
+            <div class="absolute -bottom-6 -right-6 w-36 h-36 bg-[#ffb59d]/10 rounded-full blur-2xl -z-10 pointer-events-none"></div>
+          </div>
+        </div>
+
+        <!-- Right Column: Story & Highlights -->
+        <div class="lg:col-span-6 flex flex-col justify-center">
+          
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-[#ffb59d] uppercase tracking-wider mb-4 w-fit">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            Chi Siamo
+          </div>
+
+          <h2 class="font-['Montserrat'] text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight mb-6">
+            L'eccellenza incontra la passione
+          </h2>
+
+          <p class="text-base sm:text-lg text-[#e2e2e6] leading-relaxed mb-4">
+            Guidata con entusiasmo e rigore dai maestri <strong>Marika e Michele</strong>, la scuola di danza <strong>La Vida Loca Crew</strong> è il punto di riferimento a Foggia per chi desidera vivere la magia del ballo a ogni livello.
+          </p>
+
+          <p class="text-sm sm:text-base text-[#a88a81] leading-relaxed mb-8">
+            Offriamo un ambiente dove l'alta qualità dell'insegnamento si fonde con un'accoglienza calorosa. Che tu stia muovendo i primi passi o che tu stia cercando di perfezionare la tua tecnica per le competizioni, qui troverai una famiglia pronta a guidarti verso l'eccellenza.
+          </p>
+
+          <!-- Checklist -->
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start gap-3.5 p-2 rounded-xl hover:bg-white/5 transition-colors group">
+              <div class="mt-0.5 text-[#ffb59d] group-hover:scale-110 transition-transform">
+                <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="text-white font-medium text-base block group-hover:text-[#ffb59d] transition-colors">Maestri qualificati e con anni di esperienza</span>
+                <span class="text-xs sm:text-sm text-[#a88a81] block mt-0.5">Percorsi personalizzati per adulti, giovani e bambini di ogni livello</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-3.5 p-2 rounded-xl hover:bg-white/5 transition-colors group">
+              <div class="mt-0.5 text-[#ffb59d] group-hover:scale-110 transition-transform">
+                <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="text-white font-medium text-base block group-hover:text-[#ffb59d] transition-colors">Corsi per tutti i livelli, dai primi passi all'agonismo</span>
+                <span class="text-xs sm:text-sm text-[#a88a81] block mt-0.5">Danza sportiva, standard, latino americani, caraibici e social dance</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-3.5 p-2 rounded-xl hover:bg-white/5 transition-colors group">
+              <div class="mt-0.5 text-[#ffb59d] group-hover:scale-110 transition-transform">
+                <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="text-white font-medium text-base block group-hover:text-[#ffb59d] transition-colors">Ambiente stimolante, accogliente e familiare</span>
+                <span class="text-xs sm:text-sm text-[#a88a81] block mt-0.5">Sale ampie, parquet professionale, spogliatoi e massima cura per i dettagli</span>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Quote & Direct CTA -->
+          <div class="space-y-4">
+            <div class="p-4 rounded-xl bg-[#1e2023]/60 border-l-4 border-[#ffb59d] border-t border-r border-b border-white/5">
+              <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#ffb59d] mb-1">
+                <i data-lucide="heart" class="w-3.5 h-3.5 fill-[#ffb59d]"></i>
+                Il messaggio dei maestri Marika & Michele
+              </div>
+              <p class="text-xs sm:text-sm italic text-[#e1bfb5]">
+                "La danza è per tutti: non conta l'età o il punto di partenza, ma la voglia di mettersi in gioco e condividere emozioni autentiche."
+              </p>
+            </div>
+
+            <div>
+              <a href="#contact" class="inline-flex items-center gap-2 text-sm font-semibold text-[#ffb59d] hover:text-[#390c00] px-5 py-2.5 rounded-full border border-[#ffb59d]/40 hover:border-[#ffb59d] bg-[#ffb59d]/10 hover:bg-[#ffb59d] transition-all duration-300 group">
+                <span>Vieni a conoscerci in sede</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COURSES SECTION ================= -->
+  <section id="courses" class="py-20 md:py-28 bg-[#111316] relative border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-[#ffb59d] uppercase tracking-wider mb-3">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          Discipline & Corsi Accademici
+        </div>
+        <h2 class="font-['Montserrat'] text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+          Trova il Corso Perfetto per Te
+        </h2>
+        <p class="text-sm sm:text-base text-[#a88a81] mt-3">
+          Dalle danze internazionali ai corsi social per puro divertimento, guidati con passione da Marika e Michele.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Course 1 -->
+        <div class="bg-[#16181b] border border-white/5 hover:border-[#ffb59d]/40 rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group shadow-lg">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs px-2.5 py-1 rounded-full bg-[#ffb59d]/10 text-[#ffb59d] border border-[#ffb59d]/20 font-medium">Principiante • Intermedio • Avanzato</span>
+              <i data-lucide="sparkles" class="w-4 h-4 text-[#ffb59d]"></i>
+            </div>
+            <h3 class="font-['Montserrat'] text-xl font-bold text-white group-hover:text-[#ffb59d] transition-colors mb-1">
+              Danze Standard
+            </h3>
+            <p class="text-xs text-[#e1bfb5] font-medium mb-3">Valzer Inglese, Tango, Valzer Viennese, Slowfox, Quickstep</p>
+            <p class="text-xs sm:text-sm text-[#a88a81] leading-relaxed mb-6">
+              Eleganza, postura, armonia di coppia e tecnica raffinata. Un percorso completo sia per chi balla per puro piacere sia per la danza sportiva agonistica.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+            <span class="text-xs text-[#e2e2e6] flex items-center gap-1.5">
+              <i data-lucide="clock" class="w-3.5 h-3.5 text-[#ffb59d]"></i> Lun e Mer 20:30
+            </span>
+            <a href="#contact" class="text-xs font-semibold text-[#ffb59d] hover:underline flex items-center gap-1">
+              Prova gratis <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Course 2 -->
+        <div class="bg-[#16181b] border border-white/5 hover:border-[#ffb59d]/40 rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group shadow-lg">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs px-2.5 py-1 rounded-full bg-[#ffb59d]/10 text-[#ffb59d] border border-[#ffb59d]/20 font-medium">Tutti i livelli</span>
+              <i data-lucide="flame" class="w-4 h-4 text-[#ffb59d]"></i>
+            </div>
+            <h3 class="font-['Montserrat'] text-xl font-bold text-white group-hover:text-[#ffb59d] transition-colors mb-1">
+              Danze Latino Americane
+            </h3>
+            <p class="text-xs text-[#e1bfb5] font-medium mb-3">Samba, Cha Cha Cha, Rumba, Paso Doble, Jive</p>
+            <p class="text-xs sm:text-sm text-[#a88a81] leading-relaxed mb-6">
+              Ritmo incalzante, energia, dinamica ed espressività corporea. Impara a muoverti con stile e sicurezza sui ritmi più coinvolgenti del mondo.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+            <span class="text-xs text-[#e2e2e6] flex items-center gap-1.5">
+              <i data-lucide="clock" class="w-3.5 h-3.5 text-[#ffb59d]"></i> Mar e Gio 20:30
+            </span>
+            <a href="#contact" class="text-xs font-semibold text-[#ffb59d] hover:underline flex items-center gap-1">
+              Prova gratis <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Course 3 -->
+        <div class="bg-[#16181b] border border-white/5 hover:border-[#ffb59d]/40 rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group shadow-lg">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs px-2.5 py-1 rounded-full bg-[#ffb59d]/10 text-[#ffb59d] border border-[#ffb59d]/20 font-medium">Principianti & Social</span>
+              <i data-lucide="users" class="w-4 h-4 text-[#ffb59d]"></i>
+            </div>
+            <h3 class="font-['Montserrat'] text-xl font-bold text-white group-hover:text-[#ffb59d] transition-colors mb-1">
+              Balli di Gruppo & Social
+            </h3>
+            <p class="text-xs text-[#e1bfb5] font-medium mb-3">Coreografie social, bachata, salsa e synchro dance</p>
+            <p class="text-xs sm:text-sm text-[#a88a81] leading-relaxed mb-6">
+              Ideale per socializzare, divertirsi e tenersi in forma senza la necessità di un partner fisso. Il modo migliore per staccare la spina con il sorriso.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+            <span class="text-xs text-[#e2e2e6] flex items-center gap-1.5">
+              <i data-lucide="clock" class="w-3.5 h-3.5 text-[#ffb59d]"></i> Lun e Mer 19:30
+            </span>
+            <a href="#contact" class="text-xs font-semibold text-[#ffb59d] hover:underline flex items-center gap-1">
+              Prova gratis <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= REVIEWS SECTION ================= -->
+  <section id="reviews" class="py-20 md:py-28 bg-[#0c0e11] relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Top header with Google Score -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-[#ffb59d] uppercase tracking-wider mb-3">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            Feedback & Testimonianze
+          </div>
+          <h2 class="font-['Montserrat'] text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+            Cosa dicono di noi
+          </h2>
+          <p class="text-sm sm:text-base text-[#a88a81] mt-2">
+            La soddisfazione e i sorrisi dei nostri allievi sono il nostro più grande orgoglio.
+          </p>
+        </div>
+
+        <!-- Google Score Badge -->
+        <div class="inline-flex items-center gap-4 px-5 py-3 rounded-2xl bg-[#1e2023]/80 border border-white/10 backdrop-blur-md shrink-0">
+          <div class="flex items-center gap-1.5">
+            <span class="font-['Montserrat'] text-3xl font-black text-[#ffb59d]">4.6</span>
+            <div class="flex flex-col">
+              <div class="flex text-[#fbbc00]">
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star-half" class="w-3.5 h-3.5 fill-current"></i>
+              </div>
+              <span class="text-[11px] text-[#a88a81] font-medium">22 Recensioni Google</span>
+            </div>
+          </div>
+          <div class="h-8 w-px bg-white/10 hidden sm:block"></div>
+          <span class="text-xs text-white/80 font-medium hidden sm:block">100% Verificate</span>
+        </div>
+      </div>
+
+      <!-- Reviews Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Review 1: Carmela Capuano -->
+        <div class="p-6 sm:p-8 rounded-2xl bg-[#16181b] border border-white/5 hover:border-[#ffb59d]/40 transition-all duration-300 flex flex-col justify-between relative group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-3.5">
+                <div class="w-12 h-12 rounded-full bg-[#ffb59d]/20 text-[#ffb59d] font-['Montserrat'] font-bold text-lg flex items-center justify-center border border-[#ffb59d]/30">
+                  C
+                </div>
+                <div>
+                  <h4 class="font-['Montserrat'] font-bold text-base text-white">Carmela Capuano</h4>
+                  <span class="text-xs text-[#a88a81]">Allieva • Recensione Google</span>
+                </div>
+              </div>
+              <div class="flex text-[#fbbc00]">
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              </div>
+            </div>
+            <p class="text-sm sm:text-base text-[#e2e2e6] italic leading-relaxed">
+              "Ottima scuola di ballo, i maestri Marika e Michele sono eccezionali e professionali. Ti fanno sentire subito a casa e trasmettono un amore infinito per la danza!"
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-[#a88a81]">
+            <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3 text-[#ffb59d]"></i> Foggia</span>
+            <span class="text-[#ffb59d] font-medium">Esperienza consigliata</span>
+          </div>
+        </div>
+
+        <!-- Review 2: Anna -->
+        <div class="p-6 sm:p-8 rounded-2xl bg-[#16181b] border border-white/5 hover:border-[#ffb59d]/40 transition-all duration-300 flex flex-col justify-between relative group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-3.5">
+                <div class="w-12 h-12 rounded-full bg-[#ffb59d]/20 text-[#ffb59d] font-['Montserrat'] font-bold text-lg flex items-center justify-center border border-[#ffb59d]/30">
+                  A
+                </div>
+                <div>
+                  <h4 class="font-['Montserrat'] font-bold text-base text-white">Anna</h4>
+                  <span class="text-xs text-[#a88a81]">Allieva • Recensione Google</span>
+                </div>
+              </div>
+              <div class="flex text-[#fbbc00]">
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              </div>
+            </div>
+            <p class="text-sm sm:text-base text-[#e2e2e6] italic leading-relaxed">
+              "Ambiente pulito, accogliente e stimolante. I corsi sono strutturati benissimo e si impara divertendosi. Consigliatissima a tutti a Foggia!"
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-[#a88a81]">
+            <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3 text-[#ffb59d]"></i> Foggia</span>
+            <span class="text-[#ffb59d] font-medium">Esperienza consigliata</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CONTACT & MAP SECTION ================= -->
+  <section id="contact" class="py-20 md:py-28 bg-[#16181b] relative border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Headline -->
+      <div class="mb-12 md:mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-[#ffb59d] uppercase tracking-wider mb-3">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          Contatti & Sede Ufficiale
+        </div>
+        <h2 class="font-['Montserrat'] text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+          Vieni a trovarci
+        </h2>
+        <p class="text-sm sm:text-base text-[#a88a81] mt-2 max-w-2xl">
+          Ti aspettiamo nella nostra sede di Foggia per conoscerci di persona, provare i corsi o richiedere qualsiasi informazione.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        
+        <!-- Left: Info & Form (7 Cols) -->
+        <div class="lg:col-span-7 space-y-8">
+          
+          <!-- Quick Info Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-[#1e2023]/60 border border-white/5 hover:border-[#ffb59d]/30 transition-colors">
+              <div class="w-11 h-11 rounded-full bg-[#37393d] border border-white/10 flex items-center justify-center shrink-0 text-[#ffb59d]">
+                <i data-lucide="map-pin" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-['Montserrat'] font-semibold text-sm text-white mb-1">Indirizzo Sede</h4>
+                <p class="text-sm text-[#e2e2e6] leading-snug">
+                  Via Lucera, 121<br />
+                  <span class="text-[#a88a81]">71121 Foggia (FG)</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-[#1e2023]/60 border border-white/5 hover:border-[#ffb59d]/30 transition-colors">
+              <div class="w-11 h-11 rounded-full bg-[#37393d] border border-white/10 flex items-center justify-center shrink-0 text-[#ffb59d]">
+                <i data-lucide="clock" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-['Montserrat'] font-semibold text-sm text-white mb-1">Orari di Segreteria</h4>
+                <p class="text-sm text-[#e2e2e6] leading-snug">
+                  Lunedì - Sabato<br />
+                  <span class="text-[#ffb59d] font-medium">dalle 17:00</span>
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Contact Form Box -->
+          <div class="bg-[#111316] rounded-2xl p-6 sm:p-8 border border-white/5 shadow-2xl relative">
+            
+            <div class="flex items-center justify-between border-b border-white/5 pb-4 mb-6">
+              <div>
+                <h3 class="font-['Montserrat'] text-xl sm:text-2xl font-bold text-white">
+                  Richiedi Informazioni
+                </h3>
+                <p class="text-xs sm:text-sm text-[#a88a81] mt-1">
+                  Tutti i campi contrassegnati con <span class="text-[#ffb59d] font-bold">*</span> sono obbligatori
+                </p>
+              </div>
+              <div class="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#ffb59d]/10 text-[#ffb59d] text-xs font-semibold border border-[#ffb59d]/20">
+                <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+                <span>Notifica Diretta</span>
+              </div>
+            </div>
+
+            <!-- Notification Feedback Box -->
+            <div id="formFeedback" class="hidden mb-6 p-4 rounded-xl text-sm"></div>
+
+            <!-- Form -->
+            <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-4 sm:space-y-5">
+              
+              <div>
+                <label for="contactName" class="block text-xs font-semibold uppercase tracking-wider text-[#a88a81] mb-2">
+                  Nome Completo <span class="text-[#ffb59d]">*</span>
+                </label>
+                <div class="relative">
+                  <i data-lucide="user" class="w-4 h-4 text-[#a88a81] absolute left-3.5 top-3.5 pointer-events-none"></i>
+                  <input
+                    id="contactName"
+                    type="text"
+                    required
+                    placeholder="Mario Rossi"
+                    class="w-full bg-[#282a2d] border border-[#59413a]/60 rounded-xl pl-10 pr-4 py-3 text-white placeholder-[#888] focus:outline-none focus:border-[#ffb59d] focus:ring-1 focus:ring-[#ffb59d] transition-all text-sm sm:text-base"
+                  />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="contactEmail" class="block text-xs font-semibold uppercase tracking-wider text-[#a88a81] mb-2">
+                    Indirizzo Email <span class="text-[#ffb59d]">*</span>
+                  </label>
+                  <div class="relative">
+                    <i data-lucide="mail" class="w-4 h-4 text-[#a88a81] absolute left-3.5 top-3.5 pointer-events-none"></i>
+                    <input
+                      id="contactEmail"
+                      type="email"
+                      required
+                      placeholder="mario.rossi@email.com"
+                      class="w-full bg-[#282a2d] border border-[#59413a]/60 rounded-xl pl-10 pr-4 py-3 text-white placeholder-[#888] focus:outline-none focus:border-[#ffb59d] focus:ring-1 focus:ring-[#ffb59d] transition-all text-sm sm:text-base"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label for="contactPhone" class="block text-xs font-semibold uppercase tracking-wider text-[#a88a81] mb-2">
+                    Numero di Telefono <span class="text-[#ffb59d]">*</span>
+                  </label>
+                  <div class="relative">
+                    <i data-lucide="phone" class="w-4 h-4 text-[#a88a81] absolute left-3.5 top-3.5 pointer-events-none"></i>
+                    <input
+                      id="contactPhone"
+                      type="tel"
+                      required
+                      placeholder="+39 3XX XXXXXXX"
+                      class="w-full bg-[#282a2d] border border-[#59413a]/60 rounded-xl pl-10 pr-4 py-3 text-white placeholder-[#888] focus:outline-none focus:border-[#ffb59d] focus:ring-1 focus:ring-[#ffb59d] transition-all text-sm sm:text-base"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label for="contactMessage" class="block text-xs font-semibold uppercase tracking-wider text-[#a88a81] mb-2">
+                  Messaggio <span class="text-[#ffb59d]">*</span>
+                </label>
+                <div class="relative">
+                  <i data-lucide="message-square" class="w-4 h-4 text-[#a88a81] absolute left-3.5 top-3.5 pointer-events-none"></i>
+                  <textarea
+                    id="contactMessage"
+                    rows="4"
+                    required
+                    placeholder="Come possiamo aiutarti? (Es. vorrei informazioni sul corso di Danze Standard o prenotare una prova...)"
+                    class="w-full bg-[#282a2d] border border-[#59413a]/60 rounded-xl pl-10 pr-4 py-3 text-white placeholder-[#888] focus:outline-none focus:border-[#ffb59d] focus:ring-1 focus:ring-[#ffb59d] transition-all resize-none text-sm sm:text-base"
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="pt-2">
+                <button
+                  id="submitBtn"
+                  type="submit"
+                  class="w-full bg-[#ffb59d] hover:bg-[#ff9d7e] text-[#390c00] font-semibold text-sm sm:text-base px-6 py-4 rounded-xl transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-2 glow-coral cursor-pointer"
+                >
+                  <span id="btnText">Invia Richiesta al Titolare</span>
+                  <i data-lucide="send" id="btnIcon" class="w-4 h-4"></i>
+                </button>
+                <p class="text-center text-xs text-[#a88a81] mt-3">
+                  I dati saranno inoltrati con la massima riservatezza alla direzione di La Vida Loca Crew.
+                </p>
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+        <!-- Right: Map Section (5 Cols) -->
+        <div class="lg:col-span-5 h-full">
+          <div class="sticky top-28 space-y-3">
+            
+            <div class="h-[420px] sm:h-[460px] lg:h-[500px] w-full bg-[#1e2023] rounded-2xl overflow-hidden relative border border-white/10 shadow-2xl flex items-center justify-center group">
+              
+              <!-- Dark Map Background Graphic -->
+              <div class="absolute inset-0 bg-[#111316]" style="background-image: radial-gradient(circle at center, rgba(55,57,61,0.6) 0%, rgba(17,19,22,0.95) 75%);"></div>
+              
+              <!-- Center Location Pin -->
+              <div class="relative z-10 text-center flex flex-col items-center p-6">
+                <div class="relative mb-4">
+                  <div class="w-16 h-16 bg-[#ffb59d]/20 rounded-full flex items-center justify-center animate-pulse">
+                    <div class="w-10 h-10 bg-[#ffb59d]/40 rounded-full flex items-center justify-center">
+                      <i data-lucide="map-pin" class="w-6 h-6 text-[#ffb59d] fill-[#ffb59d]"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <h3 class="font-['Montserrat'] text-2xl font-bold text-white mb-1 tracking-tight">
+                  Foggia, IT
+                </h3>
+                <p class="text-sm text-[#a88a81] mb-6">
+                  Via Lucera, 121 • 71121 Foggia
+                </p>
+
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Via+Lucera+121+71121+Foggia+FG"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="border-2 border-[#ffb59d] text-[#ffb59d] hover:bg-[#ffb59d] hover:text-[#390c00] font-['Montserrat'] font-semibold text-xs uppercase tracking-wider px-7 py-3 rounded-full transition-all duration-300 hover:scale-105 inline-flex items-center gap-2 glow-coral"
+                >
+                  <span>Apri in Google Maps</span>
+                  <i data-lucide="navigation" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
+
+            </div>
+
+            <!-- Direct Contact helper -->
+            <div class="p-3.5 rounded-xl bg-[#111316] border border-white/5 flex items-center justify-between text-xs text-[#a88a81]">
+              <span class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                Facile parcheggio su Via Lucera
+              </span>
+              <a href="tel:+393806859310" class="text-[#ffb59d] hover:underline flex items-center gap-1">
+                <i data-lucide="phone" class="w-3 h-3"></i> Tel: +39 380 685 9310
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-[#0c0e11] border-t border-white/5 py-10 text-[#a88a81]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8">
+        
+        <div class="flex items-center gap-3">
+          <a href="#" class="font-['Montserrat'] text-xl font-bold text-[#ffb59d] hover:text-white transition-colors">
+            La Vida Loca Crew
+          </a>
+          <span class="text-xs px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-[#e2e2e6]">
+            Foggia
+          </span>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-5 sm:gap-7 text-sm">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#ffb59d] transition-colors flex items-center gap-1.5">
+            <i data-lucide="instagram" class="w-4 h-4"></i>
+            <span>Instagram</span>
+          </a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#ffb59d] transition-colors flex items-center gap-1.5">
+            <i data-lucide="facebook" class="w-4 h-4"></i>
+            <span>Facebook</span>
+          </a>
+          <a href="https://wa.me/393806859310?text=Ciao!%20Vorrei%20informazioni%20sui%20corsi%20di%20ballo" target="_blank" rel="noopener noreferrer" class="hover:text-[#25D366] transition-colors flex items-center gap-1.5">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+            <span>WhatsApp (+39 380 685 9310)</span>
+          </a>
+        </div>
+
+        <div class="flex items-center gap-4 text-xs sm:text-sm text-center md:text-right">
+          <span>© 2026 La Vida Loca Crew. Via Lucera 121, Foggia.</span>
+          <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="p-2.5 rounded-full bg-[#1e2023] hover:bg-[#ffb59d] hover:text-[#390c00] text-[#e2e2e6] border border-white/10 transition-all" aria-label="Torna su">
+            <i data-lucide="arrow-up" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================= FLOATING WHATSAPP BUTTON ================= -->
+  <aside class="fixed bottom-6 right-6 z-40 flex items-center group" aria-label="Contatto WhatsApp Rapido">
+    <span class="hidden sm:block mr-3 px-3.5 py-1.5 rounded-full bg-[#1e2023] border border-white/10 text-xs font-semibold text-white shadow-xl opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 pointer-events-none">
+      Chatta con noi su WhatsApp
+    </span>
+    <a
+      href="https://wa.me/393806859310?text=Ciao!%20Vorrei%20informazioni%20sui%20corsi%20di%20ballo"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-[#073619] flex items-center justify-center glow-whatsapp hover:scale-110 active:scale-95 transition-all duration-300 border border-[#52e486]/60"
+      aria-label="Apri WhatsApp"
+    >
+      <i data-lucide="message-circle" class="w-7 h-7 fill-current"></i>
+    </a>
+  </aside>
+
+  <!-- ================= TOAST NOTIFICATION ================= -->
+  <div id="toast" class="fixed bottom-6 left-6 z-50 max-w-sm bg-[#1e2023] border border-[#ffb59d]/50 text-white p-4 rounded-xl shadow-2xl flex items-center gap-3 backdrop-blur-md hidden transition-all duration-300">
+    <div class="w-8 h-8 rounded-full bg-[#ffb59d]/20 text-[#ffb59d] flex items-center justify-center shrink-0">
+      <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+    </div>
+    <p id="toastMessage" class="text-xs sm:text-sm font-medium text-[#e2e2e6] flex-1"></p>
+    <button onclick="hideToast()" class="text-[#a88a81] hover:text-white p-1">
+      <i data-lucide="x" class="w-4 h-4"></i>
+    </button>
+  </div>
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const iconOpen = document.getElementById('menuIconOpen');
+    const iconClose = document.getElementById('menuIconClose');
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      if (isOpen) {
+        mobileMenu.classList.add('hidden');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      } else {
+        mobileMenu.classList.remove('hidden');
+        iconOpen.classList.add('hidden');
+        iconClose.classList.remove('hidden');
+      }
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      });
+    });
+
+    // Focus input on "Prenota una lezione di prova"
+    function focusContactInput() {
+      setTimeout(() => {
+        const input = document.getElementById('contactName');
+        if (input) {
+          input.focus();
+          input.classList.add('ring-2', 'ring-[#ffb59d]');
+          setTimeout(() => input.classList.remove('ring-2', 'ring-[#ffb59d]'), 2000);
+        }
+      }, 500);
+    }
+
+    // Toast functions
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMessage');
+      toastMsg.innerText = msg;
+      toast.classList.remove('hidden');
+      setTimeout(hideToast, 5000);
+    }
+
+    function hideToast() {
+      document.getElementById('toast').classList.add('hidden');
+    }
+
+    // Contact form submit simulation & WhatsApp fallback
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('contactName').value.trim();
+      const email = document.getElementById('contactEmail').value.trim();
+      const phone = document.getElementById('contactPhone').value.trim();
+      const message = document.getElementById('contactMessage').value.trim();
+      
+      const submitBtn = document.getElementById('submitBtn');
+      const btnText = document.getElementById('btnText');
+      const feedback = document.getElementById('formFeedback');
+
+      btnText.innerText = 'Invio in corso...';
+      submitBtn.disabled = true;
+
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        btnText.innerText = 'Invia Richiesta al Titolare';
+
+        feedback.className = 'mb-6 p-4 rounded-xl bg-emerald-950/40 border border-emerald-500/40 text-emerald-200 text-sm flex items-start gap-3';
+        feedback.innerHTML = `
+          <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center shrink-0">✓</div>
+          <div>
+            <strong class="text-white block">Messaggio inviato con successo!</strong>
+            Grazie <b>${name}</b>, la tua richiesta è stata registrata. Ti contatteremo al numero <b>${phone}</b> o all'email <b>${email}</b>.
+            <div class="mt-3">
+              <a href="https://wa.me/393806859310?text=${encodeURIComponent('Ciao! Ho inviato una richiesta dal sito: ' + message)}" target="_blank" class="inline-flex items-center gap-1.5 text-xs bg-[#25D366] text-[#073619] font-bold px-3 py-1.5 rounded-full hover:bg-[#20bd5a]">
+                Scrivi anche su WhatsApp
+              </a>
+            </div>
+          </div>
+        `;
+        feedback.classList.remove('hidden');
+
+        showToast(`Grazie ${name}, la tua richiesta è stata inviata con successo!`);
+        document.getElementById('contactForm').reset();
+      }, 700);
+    }
+  </script>
+</body>
+</html>
