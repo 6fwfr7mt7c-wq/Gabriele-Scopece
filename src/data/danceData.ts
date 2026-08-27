@@ -185,7 +185,7 @@ export const SCHEDULE_DAYS_DATA: DaySchedule[] = [
         category: 'yoga',
         categoryLabel: 'Benessere & Relax',
         duration: '50 min',
-        instructor: 'Insegnante Yoga',
+        instructor: 'Maestra Marika',
         level: 'Tutti i livelli',
         description: 'Armonia del respiro, allungamento posturale profondo e flessibilità.'
       },
@@ -295,7 +295,7 @@ export const SCHEDULE_DAYS_DATA: DaySchedule[] = [
         category: 'yoga',
         categoryLabel: 'Benessere & Relax',
         duration: '50 min',
-        instructor: 'Insegnante Yoga',
+        instructor: 'Maestra Marika',
         level: 'Tutti i livelli',
         description: 'Pratica rigenerante per distendere i muscoli e ritrovare la concentrazione.'
       },
