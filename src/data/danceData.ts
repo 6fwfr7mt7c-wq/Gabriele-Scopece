@@ -1,4 +1,4 @@
-import { Review, Course } from '../types';
+import { Review, Course, DaySchedule, ScheduleItem } from '../types';
 
 export const REVIEWS_DATA: Review[] = [
   {
@@ -91,6 +91,300 @@ export const COURSES_DATA: Course[] = [
     tags: ['Gruppo', 'No Partner', 'Fitness']
   }
 ];
+
+export const SCHEDULE_DAYS_DATA: DaySchedule[] = [
+  {
+    day: 'Lunedì',
+    shortDay: 'LUN',
+    tagline: 'Energia, Fitness e Ritmi Latini',
+    slots: [
+      {
+        id: 'lun-0900',
+        day: 'Lunedì',
+        time: '09:00',
+        courseName: 'Somblera Fitness',
+        category: 'fitness',
+        categoryLabel: 'Fitness & Cardio',
+        duration: '50 min',
+        instructor: 'Team Fitness',
+        level: 'Tutti i livelli',
+        description: 'Allenamento aerobico energico che combina movimenti di danza e potenziamento.'
+      },
+      {
+        id: 'lun-1000',
+        day: 'Lunedì',
+        time: '10:00',
+        courseName: 'Total Body',
+        category: 'fitness',
+        categoryLabel: 'Tonificazione',
+        duration: '50 min',
+        instructor: 'Team Fitness',
+        level: 'Tutti i livelli',
+        description: 'Circuito completo per tonificare e rafforzare tutti i distretti muscolari.'
+      },
+      {
+        id: 'lun-1700',
+        day: 'Lunedì',
+        time: '17:00',
+        courseName: 'Baby Dance',
+        category: 'baby',
+        categoryLabel: 'Junior & Baby',
+        duration: '50 min',
+        instructor: 'Maestra Marika',
+        level: '4 - 10 anni',
+        description: 'Propedeutica alla danza e sviluppo motorio a ritmo di musica per i più piccoli.'
+      },
+      {
+        id: 'lun-1800',
+        day: 'Lunedì',
+        time: '18:00',
+        courseName: 'Total Body',
+        category: 'fitness',
+        categoryLabel: 'Tonificazione',
+        duration: '50 min',
+        instructor: 'Team Fitness',
+        level: 'Tutti i livelli',
+        description: 'Allenamento pomeridiano ad alta intensità e condizionamento muscolare.'
+      },
+      {
+        id: 'lun-1900',
+        day: 'Lunedì',
+        time: '19:00',
+        courseName: 'Somblera Fitness',
+        category: 'fitness',
+        categoryLabel: 'Fitness & Cardio',
+        duration: '50 min',
+        instructor: 'Team Fitness',
+        level: 'Tutti i livelli',
+        description: 'Sessione serale bruciagrassi e scarico stress con ritmi coinvolgenti.'
+      },
+      {
+        id: 'lun-2000',
+        day: 'Lunedì',
+        time: '20:00',
+        courseName: 'Latin American Style',
+        category: 'latin',
+        categoryLabel: 'Danze Latine',
+        duration: '60 min',
+        instructor: 'Marika & Michele',
+        level: 'Open Level',
+        description: 'Tecnica, passione, postura e figure delle danze latino americane di coppia.'
+      }
+    ]
+  },
+  {
+    day: 'Martedì',
+    shortDay: 'MAR',
+    tagline: 'Equilibrio, Propedeutica e Solo Latin',
+    slots: [
+      {
+        id: 'mar-1000',
+        day: 'Martedì',
+        time: '10:00',
+        courseName: 'Yoga',
+        category: 'yoga',
+        categoryLabel: 'Benessere & Relax',
+        duration: '50 min',
+        instructor: 'Insegnante Yoga',
+        level: 'Tutti i livelli',
+        description: 'Armonia del respiro, allungamento posturale profondo e flessibilità.'
+      },
+      {
+        id: 'mar-1730',
+        day: 'Martedì',
+        time: '17:30',
+        courseName: 'Baby Latin',
+        category: 'baby',
+        categoryLabel: 'Junior & Baby',
+        duration: '50 min',
+        instructor: 'Maestra Marika',
+        level: 'Bambini & Ragazzi',
+        description: 'Primi passi latini per bambini: musicalità, coordinazione ed entusiasmo.'
+      },
+      {
+        id: 'mar-1830',
+        day: 'Martedì',
+        time: '18:30',
+        courseName: 'Solo Latin',
+        category: 'latin',
+        categoryLabel: 'Danze Latine',
+        duration: '60 min',
+        instructor: 'Marika & Michele',
+        level: 'Tutti i livelli',
+        description: 'Coreografie e tecnica latina individuale senza necessità di partner.'
+      }
+    ]
+  },
+  {
+    day: 'Mercoledì',
+    shortDay: 'MER',
+    tagline: 'Fitness, Gioco Danza e Stile Latino',
+    slots: [
+      {
+        id: 'mer-1000',
+        day: 'Mercoledì',
+        time: '10:00',
+        courseName: 'Total Body',
+        category: 'fitness',
+        categoryLabel: 'Tonificazione',
+        duration: '50 min',
+        instructor: 'Team Fitness',
+        level: 'Tutti i livelli',
+        description: 'Tonificazione mattutina completa per risvegliare energia e metabolismo.'
+      },
+      {
+        id: 'mer-1700',
+        day: 'Mercoledì',
+        time: '17:00',
+        courseName: 'Baby Dance',
+        category: 'baby',
+        categoryLabel: 'Junior & Baby',
+        duration: '50 min',
+        instructor: 'Maestra Marika',
+        level: '4 - 10 anni',
+        description: 'Gioco danza, ritmo e divertimento in gruppo per i giovani allievi.'
+      },
+      {
+        id: 'mer-1800',
+        day: 'Mercoledì',
+        time: '18:00',
+        courseName: 'Latin American Style',
+        category: 'latin',
+        categoryLabel: 'Danze Latine',
+        duration: '60 min',
+        instructor: 'Marika & Michele',
+        level: 'Open Level',
+        description: 'Studio dei ritmi samba, cha cha, rumba e jive in un clima stimolante.'
+      },
+      {
+        id: 'mer-1900',
+        day: 'Mercoledì',
+        time: '19:00',
+        courseName: 'Somblera Fitness',
+        category: 'fitness',
+        categoryLabel: 'Fitness & Cardio',
+        duration: '50 min',
+        instructor: 'Team Fitness',
+        level: 'Tutti i livelli',
+        description: 'Allenamento dinamico serale per bruciare calorie e divertirsi.'
+      }
+    ]
+  },
+  {
+    day: 'Giovedì',
+    shortDay: 'GIO',
+    tagline: 'Fitness, Yoga e Formazione Latina',
+    slots: [
+      {
+        id: 'gio-0900',
+        day: 'Giovedì',
+        time: '09:00',
+        courseName: 'Somblera Fitness',
+        category: 'fitness',
+        categoryLabel: 'Fitness & Cardio',
+        duration: '50 min',
+        instructor: 'Team Fitness',
+        level: 'Tutti i livelli',
+        description: 'Inizio giornata a ritmo di musica con circuito fitness ad alto impatto.'
+      },
+      {
+        id: 'gio-1000',
+        day: 'Giovedì',
+        time: '10:00',
+        courseName: 'Yoga',
+        category: 'yoga',
+        categoryLabel: 'Benessere & Relax',
+        duration: '50 min',
+        instructor: 'Insegnante Yoga',
+        level: 'Tutti i livelli',
+        description: 'Pratica rigenerante per distendere i muscoli e ritrovare la concentrazione.'
+      },
+      {
+        id: 'gio-1730',
+        day: 'Giovedì',
+        time: '17:30',
+        courseName: 'Baby Latin',
+        category: 'baby',
+        categoryLabel: 'Junior & Baby',
+        duration: '50 min',
+        instructor: 'Maestra Marika',
+        level: 'Bambini & Ragazzi',
+        description: 'Coreografie e tecnica junior per sviluppare portamento ed espressività.'
+      },
+      {
+        id: 'gio-1830',
+        day: 'Giovedì',
+        time: '18:30',
+        courseName: 'Solo Latin',
+        category: 'latin',
+        categoryLabel: 'Danze Latine',
+        duration: '60 min',
+        instructor: 'Marika & Michele',
+        level: 'Tutti i livelli',
+        description: 'Passi, giri e stile per ballare da soli con grazia e precisione.'
+      }
+    ]
+  },
+  {
+    day: 'Venerdì',
+    shortDay: 'VEN',
+    tagline: 'Tonificazione e Latin Night Prep',
+    slots: [
+      {
+        id: 'ven-1800',
+        day: 'Venerdì',
+        time: '18:00',
+        courseName: 'Total Body',
+        category: 'fitness',
+        categoryLabel: 'Tonificazione',
+        duration: '50 min',
+        instructor: 'Team Fitness',
+        level: 'Tutti i livelli',
+        description: 'Workout serale per chiudere la settimana con forza e motivazione.'
+      },
+      {
+        id: 'ven-1900',
+        day: 'Venerdì',
+        time: '19:00',
+        courseName: 'Solo Latin',
+        category: 'latin',
+        categoryLabel: 'Danze Latine',
+        duration: '60 min',
+        instructor: 'Marika & Michele',
+        level: 'Tutti i livelli',
+        description: 'Musica latina travolgente, routine coreografiche ed energia pura.'
+      }
+    ]
+  },
+  {
+    day: 'Sabato',
+    shortDay: 'SAB',
+    tagline: 'Lezioni Private & Percorsi Su Misura',
+    slots: [
+      {
+        id: 'sab-private',
+        day: 'Sabato',
+        time: 'Ore Private',
+        courseName: 'Ore Private & Personal Coaching',
+        category: 'private',
+        categoryLabel: 'Lezioni Private',
+        duration: 'Su prenotazione',
+        instructor: 'Marika & Michele',
+        level: 'Personalizzato (Singolo o Coppia)',
+        description: 'Sessioni one-to-one esclusive, preparazione gare FIDS, ballo sposi e lezioni personalizzate su appuntamento.'
+      }
+    ]
+  }
+];
+
+export const SCHEDULE_CATEGORIES = [
+  { id: 'all', label: 'Tutti i Corsi', color: 'indigo' },
+  { id: 'fitness', label: 'Somblera & Total Body', color: 'cyan' },
+  { id: 'latin', label: 'Danze Latine & Solo Latin', color: 'violet' },
+  { id: 'baby', label: 'Baby Dance & Baby Latin', color: 'amber' },
+  { id: 'yoga', label: 'Yoga & Benessere', color: 'emerald' },
+  { id: 'private', label: 'Ore Private', color: 'rose' },
+] as const;
 
 export const SCHOOL_INFO = {
   name: 'La Vida Loca Crew',

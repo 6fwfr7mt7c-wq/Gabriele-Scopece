@@ -39,20 +39,18 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCoursesModal }) => {
       className="relative min-h-[85vh] lg:min-h-[92vh] flex items-center justify-center overflow-hidden pt-20 pb-16 md:py-28"
     >
       {/* Background Image Layer with Atmospheric Lighting & Gradient Overlays */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Dramatic ballroom dancers image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center md:bg-[center_top_20%] w-full h-full scale-105 transition-transform duration-1000 ease-out"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1547153760-18fc86324498?q=80&w=2000&auto=format&fit=crop')`,
-            filter: 'brightness(0.68) contrast(1.15)',
-          }}
-          aria-hidden="true"
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        {/* Background Image from official URL */}
+        <img
+          src="https://www.instagram.com/p/DMKzFY1NioB/?utm_source=ig_web_copy_link&igsi=MzRlODBiNWFlZA=="
+          alt="La Vida Loca Crew Sfondo"
+          className="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.7] contrast-[1.1]"
+          referrerPolicy="no-referrer"
         />
 
-        {/* Ambient Warm Vignette & Spotlight Effect */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0c0e11] via-[#0c0e11]/60 to-[#0c0e11]/40" />
-        <div className="absolute inset-0 bg-radial from-transparent via-[#0c0e11]/40 to-[#0c0e11]/90" />
+        {/* Ambient Dark Gradient Overlays for optimal contrast & text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0c0e11] via-[#0c0e11]/75 to-[#0c0e11]/55" />
+        <div className="absolute inset-0 bg-radial from-transparent via-[#0c0e11]/50 to-[#0c0e11]/95" />
         
         {/* Subtle warm glow highlights behind title */}
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-[#ffb59d]/10 rounded-full blur-3xl pointer-events-none" />
@@ -124,14 +122,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCoursesModal }) => {
             <span>Chatta su WhatsApp</span>
           </a>
 
-          {/* Tertiary CTA - Discover courses */}
+          {/* Tertiary CTA - Schedule */}
           <button
             id="hero-secondary-cta"
-            onClick={() => scrollToAnchor('about')}
-            className="w-full sm:w-auto border border-[#59413a] hover:border-[#ffb59d] bg-[#16181b]/80 hover:bg-white/10 text-[#e2e2e6] hover:text-[#ffb59d] font-semibold text-sm sm:text-base px-6 py-4 rounded-full transition-all duration-300 ease-out active:scale-95 cursor-pointer backdrop-blur-sm shadow-md hover:-translate-y-0.5 flex items-center justify-center gap-2 group"
+            onClick={() => scrollToAnchor('schedule')}
+            className="w-full sm:w-auto border border-indigo-500/30 hover:border-indigo-400 bg-indigo-950/40 hover:bg-indigo-900/50 text-[#e2e2e6] hover:text-indigo-200 font-semibold text-sm sm:text-base px-6 py-4 rounded-full transition-all duration-300 ease-out active:scale-95 cursor-pointer backdrop-blur-sm shadow-md hover:-translate-y-0.5 flex items-center justify-center gap-2 group"
           >
-            <Compass className="w-4 h-4 text-[#ffb59d] transition-transform duration-300 group-hover:rotate-45" />
-            <span>Scopri i corsi</span>
+            <Compass className="w-4 h-4 text-indigo-400 transition-transform duration-300 group-hover:rotate-45" />
+            <span>Orari dei Corsi</span>
           </button>
         </motion.div>
 

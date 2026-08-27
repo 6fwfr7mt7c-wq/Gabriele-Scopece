@@ -73,13 +73,21 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTrialModal }) => {
           </a>
 
           {/* Desktop Nav Links with animated hover highlight */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-7 lg:space-x-8">
+            <button
+              id="nav-link-schedule"
+              onClick={() => scrollToSection('schedule')}
+              className="text-[#e2e2e6] hover:text-[#ffb59d] font-medium text-sm lg:text-base transition-colors duration-200 cursor-pointer relative group py-1"
+            >
+              <span>Orari Corsi</span>
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#ffb59d] transition-all duration-300 group-hover:w-full rounded-full" />
+            </button>
             <button
               id="nav-link-about"
               onClick={() => scrollToSection('about')}
               className="text-[#e2e2e6] hover:text-[#ffb59d] font-medium text-sm lg:text-base transition-colors duration-200 cursor-pointer relative group py-1"
             >
-              <span>About Us</span>
+              <span>Chi Siamo</span>
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#ffb59d] transition-all duration-300 group-hover:w-full rounded-full" />
             </button>
             <button
@@ -87,7 +95,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTrialModal }) => {
               onClick={() => scrollToSection('reviews')}
               className="text-[#e2e2e6] hover:text-[#ffb59d] font-medium text-sm lg:text-base transition-colors duration-200 cursor-pointer relative group py-1"
             >
-              <span>Reviews</span>
+              <span>Recensioni</span>
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#ffb59d] transition-all duration-300 group-hover:w-full rounded-full" />
             </button>
             <button
@@ -95,7 +103,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTrialModal }) => {
               onClick={() => scrollToSection('contact')}
               className="text-[#e2e2e6] hover:text-[#ffb59d] font-medium text-sm lg:text-base transition-colors duration-200 cursor-pointer relative group py-1"
             >
-              <span>Contact</span>
+              <span>Contatti</span>
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#ffb59d] transition-all duration-300 group-hover:w-full rounded-full" />
             </button>
           </div>
@@ -107,7 +115,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTrialModal }) => {
               onClick={() => scrollToSection('contact', true)}
               className="bg-[#ffb59d] hover:bg-[#ff9d7e] text-[#390c00] hover:text-[#200500] font-semibold text-sm px-6 py-2.5 rounded-full flex items-center gap-2 transition-all duration-300 ease-out active:scale-95 cursor-pointer shadow-[0_0_15px_rgba(255,181,157,0.25)] hover:shadow-[0_0_25px_rgba(255,181,157,0.5)] hover:-translate-y-0.5 group border border-transparent hover:border-[#ffe0d6]"
             >
-              <span>Book Trial</span>
+              <span>Prenota Prova</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
           </div>
@@ -133,25 +141,32 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTrialModal }) => {
           className="md:hidden bg-[#111316] border-b border-white/10 px-4 pt-3 pb-6 space-y-3 shadow-2xl transition-all duration-300 animate-in fade-in slide-in-from-top-2"
         >
           <button
+            id="mobile-nav-schedule"
+            onClick={() => scrollToSection('schedule')}
+            className="w-full text-left px-3 py-2.5 rounded-md text-[#e2e2e6] hover:bg-white/5 hover:text-[#ffb59d] font-medium transition-colors"
+          >
+            Orari Corsi
+          </button>
+          <button
             id="mobile-nav-about"
             onClick={() => scrollToSection('about')}
             className="w-full text-left px-3 py-2.5 rounded-md text-[#e2e2e6] hover:bg-white/5 hover:text-[#ffb59d] font-medium transition-colors"
           >
-            About Us
+            Chi Siamo
           </button>
           <button
             id="mobile-nav-reviews"
             onClick={() => scrollToSection('reviews')}
             className="w-full text-left px-3 py-2.5 rounded-md text-[#e2e2e6] hover:bg-white/5 hover:text-[#ffb59d] font-medium transition-colors"
           >
-            Reviews
+            Recensioni
           </button>
           <button
             id="mobile-nav-contact"
             onClick={() => scrollToSection('contact')}
             className="w-full text-left px-3 py-2.5 rounded-md text-[#e2e2e6] hover:bg-white/5 hover:text-[#ffb59d] font-medium transition-colors"
           >
-            Contact
+            Contatti
           </button>
 
           <div className="pt-2 border-t border-white/10 flex flex-col gap-2">
@@ -160,7 +175,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTrialModal }) => {
               onClick={() => scrollToSection('contact', true)}
               className="w-full bg-[#ffb59d] hover:bg-[#ff9d7e] text-[#390c00] font-semibold py-3 px-4 rounded-full flex items-center justify-center gap-2 shadow-lg hover:shadow-[0_0_20px_rgba(255,181,157,0.4)] transition-all duration-300"
             >
-              <span>Book Trial</span>
+              <span>Prenota Prova</span>
               <ArrowRight className="w-4 h-4" />
             </button>
             <a

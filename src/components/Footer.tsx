@@ -41,6 +41,17 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms }) =>
 
           {/* Nav & Social Links */}
           <div className="flex flex-wrap items-center justify-center gap-5 sm:gap-7 text-sm">
+            <a
+              href="#schedule"
+              onClick={(e) => {
+                e.preventDefault();
+                const el = document.getElementById('schedule');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="hover:text-[#ffb59d] transition-colors duration-300 cursor-pointer"
+            >
+              Orari Corsi
+            </a>
             <button
               onClick={onOpenPrivacy}
               className="hover:text-[#ffb59d] transition-colors duration-300 cursor-pointer"

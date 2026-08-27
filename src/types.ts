@@ -19,6 +19,30 @@ export interface Course {
   tags: string[];
 }
 
+export type DayOfWeek = 'Lunedì' | 'Martedì' | 'Mercoledì' | 'Giovedì' | 'Venerdì' | 'Sabato';
+
+export type ScheduleCategory = 'all' | 'fitness' | 'latin' | 'baby' | 'yoga' | 'private';
+
+export interface ScheduleItem {
+  id: string;
+  day: DayOfWeek;
+  time: string;
+  courseName: string;
+  category: 'fitness' | 'latin' | 'baby' | 'yoga' | 'private';
+  categoryLabel: string;
+  duration?: string;
+  instructor?: string;
+  level?: string;
+  description?: string;
+}
+
+export interface DaySchedule {
+  day: DayOfWeek;
+  shortDay: string;
+  tagline: string;
+  slots: ScheduleItem[];
+}
+
 export interface ContactFormData {
   name: string;
   email: string;

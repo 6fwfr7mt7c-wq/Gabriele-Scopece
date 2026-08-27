@@ -7,18 +7,38 @@ interface TrialModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSuccess: (message: string) => void;
+  defaultCourse?: string;
+  defaultDay?: string;
 }
 
-export const TrialModal: React.FC<TrialModalProps> = ({ isOpen, onClose, onSuccess }) => {
+export const TrialModal: React.FC<TrialModalProps> = ({
+  isOpen,
+  onClose,
+  onSuccess,
+  defaultCourse,
+  defaultDay,
+}) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    course: 'standard',
+    course: defaultCourse || 'standard',
     experience: 'beginner',
-    preferredDay: 'Lunedì',
+    preferredDay: defaultDay || 'Lunedì',
     notes: '',
   });
+
+  React.useEffect(() => {
+    if (isOpen) {
+      if (defaultCourse || defaultDay) {
+        setFormData((prev) => ({
+          ...prev,
+          course: defaultCourse || prev.course,
+          preferredDay: defaultDay || prev.preferredDay,
+        }));
+      }
+    }
+  }, [isOpen, defaultCourse, defaultDay]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 

@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { AboutSection } from './components/AboutSection';
+import { ScheduleSection } from './components/ScheduleSection';
 import { ReviewsSection } from './components/ReviewsSection';
 import { ContactMapSection } from './components/ContactMapSection';
 import { Footer } from './components/Footer';
@@ -18,6 +19,8 @@ import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 
 export default function App() {
   const [isTrialOpen, setIsTrialOpen] = useState(false);
+  const [trialDefaultCourse, setTrialDefaultCourse] = useState<string | undefined>(undefined);
+  const [trialDefaultDay, setTrialDefaultDay] = useState<string | undefined>(undefined);
   const [isCoursesOpen, setIsCoursesOpen] = useState(false);
   const [legalModalType, setLegalModalType] = useState<'privacy' | 'terms' | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -30,6 +33,13 @@ export default function App() {
   };
 
   const handleOpenTrialWithCourse = (_courseId: string) => {
+    setTrialDefaultCourse(_courseId);
+    setIsTrialOpen(true);
+  };
+
+  const handleOpenTrialWithSpecificSlot = (courseName?: string, day?: string) => {
+    setTrialDefaultCourse(courseName);
+    setTrialDefaultDay(day);
     setIsTrialOpen(true);
   };
 
@@ -42,21 +52,23 @@ export default function App() {
       <main className="flex-grow">
         {/* 1. Hero Section */}
         <Hero
-          onOpenTrialModal={() => setIsTrialOpen(true)}
           onOpenCoursesModal={() => setIsCoursesOpen(true)}
         />
 
         {/* 2. About Us / Image & Text Block ("L'eccellenza incontra la passione") */}
         <AboutSection />
 
-        {/* 3. Testimonials / Reviews Section ("Cosa dicono di noi") */}
+        {/* 3. Official Weekly Schedule Section ("Orari dei Corsi") */}
+        <ScheduleSection onOpenTrialModal={handleOpenTrialWithSpecificSlot} />
+
+        {/* 4. Testimonials / Reviews Section ("Cosa dicono di noi") */}
         <ReviewsSection />
 
-        {/* 4. Contact Form & Stylized Map Section ("Vieni a trovarci") */}
+        {/* 5. Contact Form & Stylized Map Section ("Vieni a trovarci") */}
         <ContactMapSection onSuccessToast={showToast} />
       </main>
 
-      {/* 5. Footer */}
+      {/* 6. Footer */}
       <Footer
         onOpenPrivacy={() => setLegalModalType('privacy')}
         onOpenTerms={() => setLegalModalType('terms')}
@@ -68,8 +80,14 @@ export default function App() {
       {/* Interactive Modal Dialogs */}
       <TrialModal
         isOpen={isTrialOpen}
-        onClose={() => setIsTrialOpen(false)}
+        onClose={() => {
+          setIsTrialOpen(false);
+          setTrialDefaultCourse(undefined);
+          setTrialDefaultDay(undefined);
+        }}
         onSuccess={showToast}
+        defaultCourse={trialDefaultCourse}
+        defaultDay={trialDefaultDay}
       />
 
       <CoursesModal
