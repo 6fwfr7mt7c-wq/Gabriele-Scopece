@@ -136,6 +136,12 @@ export const ScheduleSection: React.FC<ScheduleSectionProps> = ({ onOpenTrialMod
       <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-violet-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
@@ -192,12 +198,12 @@ export const ScheduleSection: React.FC<ScheduleSectionProps> = ({ onOpenTrialMod
           {/* Top Row: Day Selector Tabs & View Mode Switcher */}
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 pb-4 border-b border-white/5">
             
-            {/* Days Horizontal Scroll / Tabs */}
+              {/* Days Horizontal Scroll / Tabs */}
             <div className="w-full lg:w-auto flex items-center gap-1.5 overflow-x-auto pb-2 lg:pb-0 scrollbar-thin scrollbar-thumb-white/10">
               <button
                 id="filter-day-all"
                 onClick={() => setSelectedDay('all')}
-                className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 shrink-0 flex items-center gap-1.5 cursor-pointer ${
+                className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 shrink-0 flex items-center gap-1.5 cursor-pointer hover:scale-105 active:scale-95 ${
                   selectedDay === 'all'
                     ? 'bg-gradient-to-r from-indigo-600 to-violet-600 text-white shadow-md shadow-indigo-600/30'
                     : 'bg-white/5 text-[#e2e2e6] hover:bg-white/10 hover:text-white'
@@ -216,7 +222,7 @@ export const ScheduleSection: React.FC<ScheduleSectionProps> = ({ onOpenTrialMod
                     key={dayData.day}
                     id={`filter-day-${dayData.shortDay.toLowerCase()}`}
                     onClick={() => setSelectedDay(dayData.day)}
-                    className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 shrink-0 flex items-center gap-1.5 cursor-pointer ${
+                    className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 shrink-0 flex items-center gap-1.5 cursor-pointer hover:scale-105 active:scale-95 ${
                       isActive
                         ? 'bg-gradient-to-r from-indigo-600 to-violet-600 text-white shadow-md shadow-indigo-600/30'
                         : 'bg-white/5 text-[#e2e2e6] hover:bg-white/10 hover:text-white'
@@ -323,7 +329,7 @@ export const ScheduleSection: React.FC<ScheduleSectionProps> = ({ onOpenTrialMod
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: dayIdx * 0.08 }}
-                      className={`bg-[#16181c] rounded-2xl border border-white/10 hover:border-indigo-500/30 transition-all duration-300 overflow-hidden shadow-xl flex flex-col justify-between group ${
+                      className={`bg-[#16181c] rounded-2xl border border-white/10 hover:border-indigo-500/40 transition-all duration-300 overflow-hidden shadow-xl hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1 flex flex-col justify-between group ${
                         dayData.day === 'Sabato' ? 'bg-gradient-to-b from-[#1c1926] to-[#16181c]' : ''
                       }`}
                     >
@@ -392,7 +398,7 @@ export const ScheduleSection: React.FC<ScheduleSectionProps> = ({ onOpenTrialMod
                               {/* Quick Booking Button */}
                               <button
                                 onClick={() => handleBooking(slot.courseName, slot.day)}
-                                className="mt-1 w-full py-1.5 px-3 rounded-lg text-xs font-semibold bg-white/5 hover:bg-indigo-600 text-[#e2e2e6] hover:text-white transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer group/btn border border-white/5 hover:border-indigo-500"
+                                className="mt-1 w-full py-1.5 px-3 rounded-lg text-xs font-semibold bg-white/5 hover:bg-indigo-600 text-[#e2e2e6] hover:text-white transition-all duration-200 hover:scale-105 active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer group/btn border border-white/5 hover:border-indigo-500 shadow-sm"
                               >
                                 <span>Prenota prova</span>
                                 <ArrowRight className="w-3 h-3 transition-transform duration-200 group-hover/btn:translate-x-1" />
@@ -536,7 +542,7 @@ export const ScheduleSection: React.FC<ScheduleSectionProps> = ({ onOpenTrialMod
               <button
                 id="schedule-book-private-btn"
                 onClick={() => handleBooking('Ore Private & Personal Coaching', 'Sabato')}
-                className="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm px-6 py-3 rounded-full flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-indigo-600/30 hover:shadow-indigo-600/50 cursor-pointer"
+                className="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm px-6 py-3 rounded-full flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-indigo-600/30 hover:shadow-indigo-600/50 hover:scale-105 hover:-translate-y-1 active:scale-95 cursor-pointer cta-shimmer-sweep"
               >
                 <span>Richiedi Lezione Privata</span>
                 <ArrowRight className="w-4 h-4" />
@@ -549,7 +555,7 @@ export const ScheduleSection: React.FC<ScheduleSectionProps> = ({ onOpenTrialMod
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white/5 hover:bg-white/10 text-[#e2e2e6] hover:text-white border border-white/10 hover:border-white/20 font-semibold text-sm px-6 py-3 rounded-full flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer"
+                className="bg-white/5 hover:bg-white/10 text-[#e2e2e6] hover:text-white border border-white/10 hover:border-white/20 font-semibold text-sm px-6 py-3 rounded-full flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105 hover:-translate-y-1 active:scale-95 cursor-pointer"
               >
                 <MessageCircle className="w-4 h-4 text-[#25D366]" />
                 <span>Info veloci WhatsApp</span>
@@ -567,7 +573,7 @@ export const ScheduleSection: React.FC<ScheduleSectionProps> = ({ onOpenTrialMod
             <button
               id="schedule-bottom-trial-btn"
               onClick={() => handleBooking()}
-              className="bg-[#ffb59d] hover:bg-[#ff9d7e] text-[#390c00] font-semibold text-sm sm:text-base px-8 py-3.5 rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(255,181,157,0.3)] hover:shadow-[0_0_35px_rgba(255,181,157,0.6)] cursor-pointer flex items-center gap-2"
+              className="bg-[#ffb59d] hover:bg-[#ff9d7e] text-[#390c00] font-semibold text-sm sm:text-base px-8 py-3.5 rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(255,181,157,0.35)] hover:shadow-[0_0_35px_rgba(255,181,157,0.65)] hover:scale-105 hover:-translate-y-1 active:scale-95 cursor-pointer flex items-center gap-2 border border-[#ffe0d6]/30 hover:border-[#ffe0d6] cta-shimmer-sweep"
             >
               <Sparkles className="w-4 h-4" />
               <span>Prenota la tua Prova Gratuita</span>
@@ -576,7 +582,7 @@ export const ScheduleSection: React.FC<ScheduleSectionProps> = ({ onOpenTrialMod
             <a
               id="schedule-bottom-phone-btn"
               href={`tel:${SCHOOL_INFO.phone.replace(/\s+/g, '')}`}
-              className="bg-white/5 hover:bg-white/10 text-white border border-white/10 px-6 py-3.5 rounded-full text-sm font-semibold flex items-center gap-2 transition-all duration-300"
+              className="bg-white/5 hover:bg-white/10 text-white border border-white/10 px-6 py-3.5 rounded-full text-sm font-semibold flex items-center gap-2 transition-all duration-300 hover:scale-105 hover:-translate-y-1 active:scale-95 shadow-sm"
             >
               <PhoneCall className="w-4 h-4 text-indigo-400" />
               <span>Chiamaci: {SCHOOL_INFO.phone}</span>
@@ -584,6 +590,7 @@ export const ScheduleSection: React.FC<ScheduleSectionProps> = ({ onOpenTrialMod
           </div>
         </div>
 
+        </motion.div>
       </div>
     </section>
   );

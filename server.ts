@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
  * Defaults to the owner email provided or configured via environment variable OWNER_EMAIL.
  * Sostituisci questo valore con l'email del titolare (es. email di tuo zio).
  */
-const OWNER_EMAIL = process.env.OWNER_EMAIL || 'gabrielescopecefg@gmail.com';
+const OWNER_EMAIL = process.env.OWNER_EMAIL || 'Michelecagnazzo1985.mc@gmail.com';
 
 // API Routes
 app.get('/api/health', (req, res) => {

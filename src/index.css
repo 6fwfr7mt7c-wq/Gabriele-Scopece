@@ -35,6 +35,44 @@
   border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
+/* Micro-interaction CTA Sheen / Reflect effect */
+@keyframes sheen-sweep {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+.cta-shimmer-sweep {
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-shimmer-sweep::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.0) 30%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0.0) 70%,
+    transparent 100%
+  );
+  transform: translateX(-150%) skewX(-20deg);
+  pointer-events: none;
+}
+
+.cta-shimmer-sweep:hover::after {
+  animation: sheen-sweep 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

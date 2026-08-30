@@ -1,7 +1,32 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Sparkles, CheckCircle2, User, Mail, Phone, Calendar } from 'lucide-react';
-import { COURSES_DATA } from '../data/danceData';
+
+export const TRIAL_DISCIPLINES = [
+  'Somblera',
+  'Total Body Dance',
+  'Latin American Style',
+  'Yoga',
+  'Baby Dance',
+  'Solo Latin',
+] as const;
+
+const resolveDefaultDiscipline = (input?: string): string => {
+  if (!input) return TRIAL_DISCIPLINES[0];
+  const exact = TRIAL_DISCIPLINES.find((d) => d.toLowerCase() === input.toLowerCase());
+  if (exact) return exact;
+  const partial = TRIAL_DISCIPLINES.find(
+    (d) => d.toLowerCase().includes(input.toLowerCase()) || input.toLowerCase().includes(d.toLowerCase())
+  );
+  if (partial) return partial;
+  if (input.toLowerCase().includes('latini') || input.toLowerCase().includes('latin')) return 'Latin American Style';
+  if (input.toLowerCase().includes('somblera') || input.toLowerCase().includes('fitness')) return 'Somblera';
+  if (input.toLowerCase().includes('total') || input.toLowerCase().includes('body')) return 'Total Body Dance';
+  if (input.toLowerCase().includes('yoga')) return 'Yoga';
+  if (input.toLowerCase().includes('baby') || input.toLowerCase().includes('kids')) return 'Baby Dance';
+  if (input.toLowerCase().includes('solo') || input.toLowerCase().includes('synchro')) return 'Solo Latin';
+  return TRIAL_DISCIPLINES[0];
+};
 
 interface TrialModalProps {
   isOpen: boolean;
@@ -22,7 +47,7 @@ export const TrialModal: React.FC<TrialModalProps> = ({
     name: '',
     email: '',
     phone: '',
-    course: defaultCourse || 'standard',
+    course: resolveDefaultDiscipline(defaultCourse),
     experience: 'beginner',
     preferredDay: defaultDay || 'Lunedì',
     notes: '',
@@ -33,7 +58,7 @@ export const TrialModal: React.FC<TrialModalProps> = ({
       if (defaultCourse || defaultDay) {
         setFormData((prev) => ({
           ...prev,
-          course: defaultCourse || prev.course,
+          course: defaultCourse ? resolveDefaultDiscipline(defaultCourse) : prev.course,
           preferredDay: defaultDay || prev.preferredDay,
         }));
       }
@@ -44,41 +69,25 @@ export const TrialModal: React.FC<TrialModalProps> = ({
 
   if (!isOpen) return null;
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    if (!formData.name.trim()) return;
 
-    const courseObj = COURSES_DATA.find((c) => c.id === formData.course);
-    const courseTitle = courseObj ? courseObj.title : formData.course;
+    const courseChosen = formData.course || 'Danze Latino Americane';
+    const waText = `Ciao! Vorrei prenotare una lezione di prova gratuita.
+- Nome: ${formData.name.trim()}
+- Telefono: ${formData.phone.trim() || 'Non specificato'}
+- Corso scelto: ${courseChosen}`;
 
-    const fullMessage = `Prenotazione Lezione di Prova Gratuita:
-- Disciplina: ${courseTitle}
-- Livello: ${formData.experience}
-- Giorno preferito: ${formData.preferredDay}
-- Note/Partner: ${formData.notes || 'Nessuna nota specificata'}`;
+    const waUrl = `https://api.whatsapp.com/send?phone=393806859310&text=${encodeURIComponent(waText)}`;
 
-    try {
-      await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: formData.name.trim(),
-          email: formData.email.trim(),
-          phone: formData.phone.trim(),
-          message: fullMessage,
-        }),
-      });
-    } catch (err) {
-      console.warn('Backend log note:', err);
-    } finally {
-      setIsSubmitting(false);
-      setSubmitted(true);
-      onSuccess(`Prenotazione confermata per ${formData.name}! Ti aspettiamo in sede.`);
-      setTimeout(() => {
-        setSubmitted(false);
-        onClose();
-      }, 2500);
-    }
+    // Open WhatsApp directly in a new tab with secure parameters
+    window.open(waUrl, '_blank', 'noopener,noreferrer');
+    
+    onSuccess(`Apertura chat WhatsApp con la scuola per la lezione di prova di ${formData.name}!`);
+    setTimeout(() => {
+      onClose();
+    }, 1000);
   };
 
   return (
@@ -103,15 +112,15 @@ export const TrialModal: React.FC<TrialModalProps> = ({
           {/* Header Bar */}
           <div className="p-6 sm:p-8 bg-[#1e2023] border-b border-white/5 flex items-center justify-between">
             <div>
-              <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-[#ffb59d] font-semibold mb-1">
+              <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-[#25D366] font-semibold mb-1">
                 <Sparkles className="w-3.5 h-3.5" />
-                La Vida Loca Crew • Foggia
+                La Vida Loca Crew • WhatsApp Diretto
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-white font-['Montserrat',sans-serif]">
                 Prenota la tua Lezione di Prova
               </h3>
               <p className="text-xs sm:text-sm text-[#a88a81] mt-1">
-                La prima lezione è sempre gratuita e senza impegno.
+                Compila i campi per inviare la richiesta direttamente su WhatsApp.
               </p>
             </div>
             <button
@@ -147,13 +156,14 @@ export const TrialModal: React.FC<TrialModalProps> = ({
                     Quale disciplina vorresti provare? *
                   </label>
                   <select
+                    id="trial-discipline-select"
                     value={formData.course}
                     onChange={(e) => setFormData({ ...formData, course: e.target.value })}
-                    className="w-full bg-[#282a2d] border border-[#59413a]/60 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#ffb59d] text-sm"
+                    className="w-full bg-[#282a2d] border border-[#59413a]/60 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#ffb59d] text-sm cursor-pointer"
                   >
-                    {COURSES_DATA.map((course) => (
-                      <option key={course.id} value={course.id} className="bg-[#1e2023] text-white">
-                        {course.title} ({course.level})
+                    {TRIAL_DISCIPLINES.map((discipline) => (
+                      <option key={discipline} value={discipline} className="bg-[#1e2023] text-white">
+                        {discipline}
                       </option>
                     ))}
                   </select>
@@ -266,20 +276,13 @@ export const TrialModal: React.FC<TrialModalProps> = ({
                 <div className="pt-3">
                   <button
                     type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-[#ffb59d] hover:bg-[#ff9d7e] text-[#390c00] font-semibold text-base py-4 rounded-xl shadow-xl transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 hover:shadow-[0_0_25px_rgba(255,181,157,0.5)]"
+                    className="w-full bg-[#25D366] hover:bg-[#20bd5a] text-[#073619] hover:text-[#031e0d] font-bold text-base py-4 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 active:scale-95 cursor-pointer flex items-center justify-center gap-2 border border-[#52e486]/60 shadow-[0_4px_25px_rgba(37,211,102,0.35)] hover:shadow-[0_6px_35px_rgba(37,211,102,0.65)]"
                   >
-                    {isSubmitting ? (
-                      <span>Invio in corso...</span>
-                    ) : (
-                      <>
-                        <span>Conferma Prenotazione Gratuita</span>
-                        <CheckCircle2 className="w-5 h-5" />
-                      </>
-                    )}
+                    <Phone className="w-5 h-5 fill-current" />
+                    <span>Prenota la Prova su WhatsApp (+39 380 685 9310)</span>
                   </button>
                   <p className="text-center text-xs text-[#a88a81] mt-2.5">
-                    Nessuna carta richiesta • Cancellazione libera • Sede: Via Lucera 121, Foggia
+                    Nessuna carta richiesta • Prova gratuita senza impegno • Sede: Via Lucera 121, Foggia
                   </p>
                 </div>
 

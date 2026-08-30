@@ -10,6 +10,7 @@ import { AboutSection } from './components/AboutSection';
 import { ScheduleSection } from './components/ScheduleSection';
 import { ReviewsSection } from './components/ReviewsSection';
 import { ContactMapSection } from './components/ContactMapSection';
+import { Social } from './components/Social';
 import { Footer } from './components/Footer';
 import { TrialModal } from './components/TrialModal';
 import { CoursesModal } from './components/CoursesModal';
@@ -66,9 +67,12 @@ export default function App() {
 
         {/* 5. Contact Form & Stylized Map Section ("Vieni a trovarci") */}
         <ContactMapSection onSuccessToast={showToast} />
+
+        {/* 6. Social Channels Section ("Seguici sui nostri Social") */}
+        <Social />
       </main>
 
-      {/* 6. Footer */}
+      {/* 7. Footer */}
       <Footer
         onOpenPrivacy={() => setLegalModalType('privacy')}
         onOpenTerms={() => setLegalModalType('terms')}

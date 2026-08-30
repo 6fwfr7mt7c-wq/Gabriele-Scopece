@@ -13,6 +13,12 @@ export const ReviewsSection: React.FC = () => {
       className="py-20 md:py-28 bg-[#0c0e11] relative border-t border-white/5"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 md:mb-16">
@@ -70,7 +76,7 @@ export const ReviewsSection: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-[#1e2023] rounded-xl p-6 sm:p-8 border border-white/5 hover:border-[#ffb59d]/30 transition-all duration-300 relative overflow-hidden group shadow-lg flex flex-col justify-between"
+                className="bg-[#1e2023] rounded-xl p-6 sm:p-8 border border-white/5 hover:border-[#ffb59d]/40 transition-all duration-300 relative overflow-hidden group shadow-lg hover:shadow-2xl hover:scale-105 hover:-translate-y-1 flex flex-col justify-between"
               >
                 {/* Subtle Quote Watermark */}
                 <div className="absolute top-4 right-4 sm:top-6 sm:right-6 text-[#ffb59d] opacity-10 group-hover:opacity-20 transition-opacity pointer-events-none">
@@ -118,7 +124,7 @@ export const ReviewsSection: React.FC = () => {
         <div className="mt-10 text-center flex flex-col sm:flex-row items-center justify-center gap-4">
           <button
             onClick={() => setShowAll(!showAll)}
-            className="text-xs sm:text-sm font-semibold text-[#ffb59d] hover:text-[#390c00] px-6 py-3 rounded-full border border-[#ffb59d]/40 hover:border-[#ffb59d] bg-[#16181b] hover:bg-[#ffb59d] transition-all duration-300 flex items-center gap-2 cursor-pointer shadow-sm hover:shadow-[0_0_20px_rgba(255,181,157,0.35)] group"
+            className="text-xs sm:text-sm font-semibold text-[#ffb59d] hover:text-[#390c00] px-6 py-3 rounded-full border border-[#ffb59d]/40 hover:border-[#ffb59d] bg-[#16181b] hover:bg-[#ffb59d] transition-all duration-300 hover:scale-105 hover:-translate-y-1 active:scale-95 flex items-center gap-2 cursor-pointer shadow-sm hover:shadow-[0_0_20px_rgba(255,181,157,0.35)] group"
           >
             <span>{showAll ? 'Mostra meno recensioni' : 'Leggi altre recensioni degli allievi'}</span>
             <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`} />
@@ -128,13 +134,14 @@ export const ReviewsSection: React.FC = () => {
             href={SCHOOL_INFO.mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs sm:text-sm text-[#a88a81] hover:text-[#ffb59d] transition-colors duration-300 flex items-center gap-1.5 py-2 px-3 rounded-lg hover:bg-white/5"
+            className="text-xs sm:text-sm text-[#a88a81] hover:text-[#ffb59d] transition-all duration-300 hover:scale-105 hover:-translate-y-1 active:scale-95 flex items-center gap-1.5 py-2.5 px-4 rounded-full border border-white/5 hover:border-white/15 bg-white/[0.02] hover:bg-white/5"
           >
             <span>Apri recensioni su Google Maps</span>
             <ExternalLink className="w-3.5 h-3.5" />
           </a>
         </div>
 
+        </motion.div>
       </div>
     </section>
   );

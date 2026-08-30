@@ -25,7 +25,7 @@ export const REVIEWS_DATA: Review[] = [
     initial: 'G',
     rating: 5,
     date: 'Un mese fa su Google',
-    comment: 'Dalla prima lezione di prova mi sono sentito accolto come in una seconda famiglia. Tecnica sopraffina, sala spaziosa con parquet eccezionale e grandissima professionalità.',
+    comment: 'Dalla prima lezione di prova mi sono sentito accolto come in una seconda famiglia. Tecnica sopraffina, ampie sale accoglienti e attrezzate e grandissima professionalità.',
     source: 'Google',
   },
   {
@@ -394,15 +394,17 @@ export const SCHOOL_INFO = {
   fullAddress: 'Via Lucera, 121, 71121 Foggia (FG)',
   hours: 'Lunedì - Sabato dalle 17:00',
   phone: '+39 380 685 9310',
-  email: 'info@lavidalocacrew.it',
+  email: 'Michelecagnazzo1985.mc@gmail.com',
   googleRating: 4.6,
   googleReviewsCount: 22,
   founders: 'Marika e Michele',
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Via+Lucera+121+71121+Foggia+FG',
+  instagramUrl: 'https://www.instagram.com/la_vida_loca_latin_crew?igsi=dTd1enh5eGtjcXR0',
+  facebookUrl: 'https://www.facebook.com/share/19GnetLF1L/?mibextid=wwXIfr',
   // Numero WhatsApp ufficiale del titolare: +39 380 685 9310
   whatsappNumber: '393806859310',
   whatsappMessage: 'Ciao! Vorrei informazioni sui corsi di ballo',
   get whatsappUrl() {
-    return `https://wa.me/${this.whatsappNumber}?text=${encodeURIComponent(this.whatsappMessage)}`;
+    return `https://api.whatsapp.com/send?phone=${this.whatsappNumber}&text=${encodeURIComponent(this.whatsappMessage)}`;
   }
 };

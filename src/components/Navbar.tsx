@@ -106,14 +106,30 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTrialModal }) => {
               <span>Contatti</span>
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#ffb59d] transition-all duration-300 group-hover:w-full rounded-full" />
             </button>
+            <button
+              id="nav-link-faq"
+              onClick={() => scrollToSection('faq')}
+              className="text-[#e2e2e6] hover:text-[#ffb59d] font-medium text-sm lg:text-base transition-colors duration-200 cursor-pointer relative group py-1"
+            >
+              <span>FAQ</span>
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#ffb59d] transition-all duration-300 group-hover:w-full rounded-full" />
+            </button>
+            <button
+              id="nav-link-social"
+              onClick={() => scrollToSection('social')}
+              className="text-[#e2e2e6] hover:text-[#ffb59d] font-medium text-sm lg:text-base transition-colors duration-200 cursor-pointer relative group py-1"
+            >
+              <span>Social</span>
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#ffb59d] transition-all duration-300 group-hover:w-full rounded-full" />
+            </button>
           </div>
 
-          {/* Desktop CTA Button with rich hover effect */}
+          {/* Desktop CTA Button with rich hover effect & sheen */}
           <div className="hidden md:flex items-center gap-4">
             <button
               id="nav-book-trial-btn"
               onClick={() => scrollToSection('contact', true)}
-              className="bg-[#ffb59d] hover:bg-[#ff9d7e] text-[#390c00] hover:text-[#200500] font-semibold text-sm px-6 py-2.5 rounded-full flex items-center gap-2 transition-all duration-300 ease-out active:scale-95 cursor-pointer shadow-[0_0_15px_rgba(255,181,157,0.25)] hover:shadow-[0_0_25px_rgba(255,181,157,0.5)] hover:-translate-y-0.5 group border border-transparent hover:border-[#ffe0d6]"
+              className="bg-[#ffb59d] hover:bg-[#ff9d7e] text-[#390c00] hover:text-[#200500] font-semibold text-sm px-6 py-2.5 rounded-full flex items-center gap-2 transition-all duration-300 ease-out active:scale-95 cursor-pointer shadow-[0_0_15px_rgba(255,181,157,0.25)] hover:shadow-[0_0_28px_rgba(255,181,157,0.6)] hover:scale-105 hover:-translate-y-1 group border border-[#ffe0d6]/30 hover:border-[#ffe0d6] cta-shimmer-sweep"
             >
               <span>Prenota Prova</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -167,6 +183,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTrialModal }) => {
             className="w-full text-left px-3 py-2.5 rounded-md text-[#e2e2e6] hover:bg-white/5 hover:text-[#ffb59d] font-medium transition-colors"
           >
             Contatti
+          </button>
+          <button
+            id="mobile-nav-faq"
+            onClick={() => scrollToSection('faq')}
+            className="w-full text-left px-3 py-2.5 rounded-md text-[#e2e2e6] hover:bg-white/5 hover:text-[#ffb59d] font-medium transition-colors"
+          >
+            FAQ
+          </button>
+          <button
+            id="mobile-nav-social"
+            onClick={() => scrollToSection('social')}
+            className="w-full text-left px-3 py-2.5 rounded-md text-[#e2e2e6] hover:bg-white/5 hover:text-[#ffb59d] font-medium transition-colors"
+          >
+            Social
           </button>
 
           <div className="pt-2 border-t border-white/10 flex flex-col gap-2">

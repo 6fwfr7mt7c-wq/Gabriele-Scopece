@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { CheckCircle2, Award, Heart, Sparkles, ArrowRight } from 'lucide-react';
+import { CheckCircle2, Heart, Sparkles, ArrowRight } from 'lucide-react';
 
 export const AboutSection: React.FC = () => {
   const highlights = [
@@ -10,7 +10,7 @@ export const AboutSection: React.FC = () => {
     },
     {
       text: 'Ambiente moderno ed elegante',
-      desc: 'Sale spaziose con parquet professionale ammortizzato e specchi a tutta parete.',
+      desc: 'Ampie sale luminose e climatizzate, con specchi a tutta parete e spazi professionali.',
     },
     {
       text: 'Corsi per tutti i livelli ed età',
@@ -45,62 +45,117 @@ export const AboutSection: React.FC = () => {
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-[#ffb59d]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
+        >
           
-          {/* Visual Column (Studio Image with Ambient Glow) */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.7 }}
-            className="relative order-2 lg:order-1"
-          >
-            {/* Glow blur element behind image */}
-            <div className="absolute -inset-3 sm:-inset-4 bg-gradient-to-tr from-[#ffb59d]/25 via-transparent to-[#ffb59d]/10 rounded-2xl sm:rounded-3xl blur-xl z-0 pointer-events-none" />
+          {/* Visual Column (6-Image Dynamic Collage Gallery with Ambient Glow) */}
+          <div className="relative order-2 lg:order-1">
+            {/* Glow blur element behind gallery */}
+            <div className="absolute -inset-3 sm:-inset-5 bg-gradient-to-tr from-[#ffb59d]/20 via-transparent to-[#ffb59d]/10 rounded-2xl sm:rounded-3xl blur-2xl z-0 pointer-events-none" />
             
-            {/* Studio Image Container */}
-            <div className="relative z-10 rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
-              <img
-                id="about-studio-img"
-                src="https://images.unsplash.com/photo-1508807526345-15e9b5f4eaff?q=80&w=1200&auto=format&fit=crop"
-                alt="Dance Studio La Vida Loca Crew con parquet in legno e specchi"
-                className="w-full h-auto aspect-[4/5] object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
-              />
-              
-              {/* Overlay vignette */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0c0e11]/80 via-transparent to-transparent pointer-events-none" />
+            {/* Gallery Collage Container */}
+            <div className="relative z-10 w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 bg-[#16181d]/85 p-3 sm:p-4 shadow-2xl backdrop-blur-sm">
+              <div className="grid grid-cols-2 sm:grid-cols-6 gap-2.5 sm:gap-3">
+                {/* 1. Main Featured Image (Large Left/Top focus) */}
+                <div className="col-span-2 sm:col-span-4 sm:row-span-2 relative group overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 bg-black/40 min-h-[220px] sm:min-h-[280px]">
+                  <img
+                    id="about-gallery-img-0"
+                    src="/foto%20scuola%206.jpg"
+                    alt="Insegnanti Marika & Michele - La Vida Loca Crew Foggia"
+                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (target.src !== '/foto%20scuola.jpg') {
+                        target.src = '/foto%20scuola.jpg';
+                      }
+                    }}
+                  />
+                  
+                  {/* Bottom gradient overlay for badge readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-90 group-hover:opacity-75 transition-opacity duration-300 pointer-events-none" />
 
-              {/* Floating overlay badge */}
-              <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 p-4 rounded-xl bg-[#1e2023]/90 backdrop-blur-md border border-white/10 flex items-center justify-between transition-all duration-300 hover:border-[#ffb59d]/40">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-[#ffb59d]/20 text-[#ffb59d] flex items-center justify-center shrink-0">
-                    <Award className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold font-['Montserrat',sans-serif] text-white">
-                      Sala Ballo Professionale
-                    </h4>
-                    <p className="text-xs text-[#a88a81]">
-                      Parquet elastico e acustica studiata
-                    </p>
+                  {/* Elegant Badge for Teachers */}
+                  <div className="absolute bottom-2.5 left-2.5 sm:bottom-3.5 sm:left-3.5 right-2.5 sm:right-auto z-10">
+                    <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-[#16181d]/90 backdrop-blur-md border border-[#ffb59d]/30 shadow-lg shadow-black/40 transition-all duration-300 group-hover:border-[#ffb59d]/60">
+                      <span className="w-2 h-2 rounded-full bg-[#ffb59d] animate-pulse" />
+                      <span className="text-xs sm:text-sm font-semibold font-['Montserrat',sans-serif] text-white tracking-wide">
+                        Insegnanti <span className="text-[#ffb59d] font-bold">Marika & Michele</span>
+                      </span>
+                    </div>
                   </div>
                 </div>
-                <span className="hidden sm:inline-flex items-center text-xs font-semibold text-[#ffb59d] px-2.5 py-1 rounded-full bg-[#ffb59d]/10 border border-[#ffb59d]/20">
-                  Foggia, Via Lucera 121
-                </span>
+
+                {/* 2. Photo 1 */}
+                <div className="col-span-1 sm:col-span-2 aspect-square relative group overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 bg-black/40">
+                  <img
+                    id="about-gallery-img-1"
+                    src="/foto%20scuola%201.jpg"
+                    alt="La Vida Loca Crew - Esibizioni e saggio Foggia"
+                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300 pointer-events-none" />
+                </div>
+
+                {/* 3. Photo 2 */}
+                <div className="col-span-1 sm:col-span-2 aspect-square relative group overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 bg-black/40">
+                  <img
+                    id="about-gallery-img-2"
+                    src="/foto%20scuola%202.jpg"
+                    alt="La Vida Loca Crew - Danza sportiva ed eventi"
+                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300 pointer-events-none" />
+                </div>
+
+                {/* 4. Photo 3 */}
+                <div className="col-span-1 sm:col-span-2 aspect-square relative group overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 bg-black/40">
+                  <img
+                    id="about-gallery-img-3"
+                    src="/foto%20scuola%203.jpg"
+                    alt="La Vida Loca Crew - Gare ed emozioni"
+                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300 pointer-events-none" />
+                </div>
+
+                {/* 5. Photo 4 */}
+                <div className="col-span-1 sm:col-span-2 aspect-square relative group overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 bg-black/40">
+                  <img
+                    id="about-gallery-img-4"
+                    src="/foto%20scuola%204.jpg"
+                    alt="La Vida Loca Crew - Ballo ed energia di gruppo"
+                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300 pointer-events-none" />
+                </div>
+
+                {/* 6. Photo 5 */}
+                <div className="col-span-2 sm:col-span-2 aspect-[2/1] sm:aspect-square relative group overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 bg-black/40">
+                  <img
+                    id="about-gallery-img-5"
+                    src="/foto%20scuola%205.jpg"
+                    alt="La Vida Loca Crew - Passione e spettacoli"
+                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300 pointer-events-none" />
+                </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Text Content Column */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.7 }}
-            className="order-1 lg:order-2 flex flex-col justify-center"
-          >
+          <div className="order-1 lg:order-2 flex flex-col justify-center">
             <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#ffb59d] font-semibold mb-3">
               <Sparkles className="w-3.5 h-3.5" />
               Chi Siamo & La Nostra Filosofia
@@ -161,16 +216,16 @@ export const AboutSection: React.FC = () => {
               <div>
                 <button
                   onClick={scrollToContact}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#ffb59d] hover:text-white px-5 py-2.5 rounded-full border border-[#ffb59d]/30 hover:border-[#ffb59d] bg-[#ffb59d]/10 hover:bg-[#ffb59d] hover:text-[#390c00] transition-all duration-300 shadow-sm hover:shadow-[0_0_20px_rgba(255,181,157,0.3)] cursor-pointer group"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#ffb59d] px-5 py-2.5 rounded-full border border-[#ffb59d]/40 hover:border-[#ffb59d] bg-[#ffb59d]/10 hover:bg-[#ffb59d] hover:text-[#390c00] transition-all duration-300 hover:scale-105 hover:-translate-y-1 active:scale-95 shadow-sm hover:shadow-[0_0_25px_rgba(255,181,157,0.4)] cursor-pointer group"
                 >
                   <span>Vieni a conoscerci in sede</span>
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </button>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-        </div>
+        </motion.div>
       </div>
     </section>
   );

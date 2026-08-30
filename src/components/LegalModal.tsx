@@ -89,7 +89,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
                 </p>
                 <h4 className="font-bold text-white text-base pt-2">3. Regolamento delle Sale</h4>
                 <p>
-                  Gli allievi sono tenuti a rispettare gli orari stabiliti per le lezioni, la cura dei locali, del parquet e degli arredi della scuola di danza, mantenendo uno spirito di rispetto e collaborazione reciproca.
+                  Gli allievi sono tenuti a rispettare gli orari stabiliti per le lezioni, la cura dei locali, delle sale da ballo e degli arredi della scuola di danza, mantenendo uno spirito di rispetto e collaborazione reciproca.
                 </p>
               </>
             )}

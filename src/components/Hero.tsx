@@ -40,12 +40,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCoursesModal }) => {
     >
       {/* Background Image Layer with Atmospheric Lighting & Gradient Overlays */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        {/* Background Image from official URL */}
+        {/* Background Image */}
         <img
-          src="https://www.instagram.com/p/DMKzFY1NioB/?utm_source=ig_web_copy_link&igsi=MzRlODBiNWFlZA=="
-          alt="La Vida Loca Crew Sfondo"
-          className="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.7] contrast-[1.1]"
-          referrerPolicy="no-referrer"
+          id="hero-bg-image"
+          src="/Gemini_Generated_Image_9f2lkx9f2lkx9f2l.jpg"
+          alt="La Vida Loca Crew - Scuola di ballo e danza sportiva Foggia"
+          className="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.75] contrast-[1.05]"
         />
 
         {/* Ambient Dark Gradient Overlays for optimal contrast & text legibility */}
@@ -75,7 +75,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCoursesModal }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-['Montserrat',sans-serif] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 drop-shadow-md leading-[1.12]"
+          className="font-['Montserrat',sans-serif] text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-[-0.025em] sm:tracking-[-0.035em] text-white mb-6 drop-shadow-[0_4px_24px_rgba(0,0,0,0.7)] leading-[1.08] uppercase select-none"
         >
           La Vida Loca Crew
         </motion.h1>
@@ -99,23 +99,23 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCoursesModal }) => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-4 max-w-md sm:max-w-none mx-auto"
         >
-          {/* Primary CTA - Anchor to Contact Form */}
+          {/* Primary CTA - Anchor to Contact Form with reflective sheen */}
           <button
             id="hero-primary-cta"
             onClick={() => scrollToAnchor('contact', true)}
-            className="w-full sm:w-auto bg-[#ffb59d] hover:bg-[#ff9d7e] text-[#390c00] hover:text-[#200500] font-semibold text-sm sm:text-base px-8 py-4 rounded-full transition-all duration-300 ease-out active:scale-95 cursor-pointer shadow-[0_0_20px_rgba(255,181,157,0.3)] hover:shadow-[0_0_35px_rgba(255,181,157,0.6)] hover:-translate-y-0.5 flex items-center justify-center gap-2 group border border-transparent hover:border-[#ffe0d6]"
+            className="w-full sm:w-auto bg-[#ffb59d] hover:bg-[#ff9d7e] text-[#390c00] hover:text-[#200500] font-semibold text-sm sm:text-base px-8 py-4 rounded-full transition-all duration-300 ease-out active:scale-95 cursor-pointer shadow-[0_0_20px_rgba(255,181,157,0.35)] hover:shadow-[0_0_35px_rgba(255,181,157,0.65)] hover:scale-105 hover:-translate-y-1 flex items-center justify-center gap-2 group border border-[#ffe0d6]/40 hover:border-[#ffe0d6] cta-shimmer-sweep"
           >
             <span>Prenota una lezione di prova</span>
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
           </button>
 
-          {/* Secondary WhatsApp Click-to-Chat Button (Official Green #25D366) */}
+          {/* Secondary WhatsApp Click-to-Chat Button (Official Green #25D366) with sheen */}
           <a
             id="hero-whatsapp-cta"
             href={SCHOOL_INFO.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto bg-[#25D366] hover:bg-[#20bd5a] text-[#073619] hover:text-[#031e0d] font-semibold text-sm sm:text-base px-7 py-4 rounded-full transition-all duration-300 ease-out active:scale-95 cursor-pointer shadow-[0_0_22px_rgba(37,211,102,0.35)] hover:shadow-[0_0_35px_rgba(37,211,102,0.65)] hover:-translate-y-0.5 flex items-center justify-center gap-2.5 group border border-[#52e486]/50 hover:border-white/50"
+            className="w-full sm:w-auto bg-[#25D366] hover:bg-[#20bd5a] text-[#073619] hover:text-[#031e0d] font-semibold text-sm sm:text-base px-7 py-4 rounded-full transition-all duration-300 ease-out active:scale-95 cursor-pointer shadow-[0_0_22px_rgba(37,211,102,0.35)] hover:shadow-[0_0_38px_rgba(37,211,102,0.7)] hover:scale-105 hover:-translate-y-1 flex items-center justify-center gap-2.5 group border border-[#52e486]/60 hover:border-white/70 cta-shimmer-sweep"
             aria-label="Contatta la scuola direttamente su WhatsApp"
           >
             <MessageCircle className="w-5 h-5 text-[#073619] group-hover:scale-110 transition-transform duration-300 fill-current" />
@@ -126,7 +126,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCoursesModal }) => {
           <button
             id="hero-secondary-cta"
             onClick={() => scrollToAnchor('schedule')}
-            className="w-full sm:w-auto border border-indigo-500/30 hover:border-indigo-400 bg-indigo-950/40 hover:bg-indigo-900/50 text-[#e2e2e6] hover:text-indigo-200 font-semibold text-sm sm:text-base px-6 py-4 rounded-full transition-all duration-300 ease-out active:scale-95 cursor-pointer backdrop-blur-sm shadow-md hover:-translate-y-0.5 flex items-center justify-center gap-2 group"
+            className="w-full sm:w-auto border border-indigo-500/40 hover:border-indigo-400 bg-indigo-950/40 hover:bg-indigo-900/60 text-[#e2e2e6] hover:text-white font-semibold text-sm sm:text-base px-6 py-4 rounded-full transition-all duration-300 ease-out active:scale-95 cursor-pointer backdrop-blur-sm shadow-md hover:shadow-[0_0_25px_rgba(99,102,241,0.4)] hover:scale-105 hover:-translate-y-1 flex items-center justify-center gap-2 group"
           >
             <Compass className="w-4 h-4 text-indigo-400 transition-transform duration-300 group-hover:rotate-45" />
             <span>Orari dei Corsi</span>
