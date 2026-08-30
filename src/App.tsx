@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { AboutSection } from './components/AboutSection';
+import { VideoSection } from './components/VideoSection';
 import { ScheduleSection } from './components/ScheduleSection';
 import { ReviewsSection } from './components/ReviewsSection';
 import { ContactMapSection } from './components/ContactMapSection';
@@ -58,6 +59,9 @@ export default function App() {
 
         {/* 2. About Us / Image & Text Block ("L'eccellenza incontra la passione") */}
         <AboutSection />
+
+        {/* 2.1. Dedicated Video Section ("Vivi l'atmosfera di La Vida Loca") */}
+        <VideoSection />
 
         {/* 3. Official Weekly Schedule Section ("Orari dei Corsi") */}
         <ScheduleSection onOpenTrialModal={handleOpenTrialWithSpecificSlot} />
